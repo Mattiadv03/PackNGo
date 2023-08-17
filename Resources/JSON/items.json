@@ -1,0 +1,91 @@
+{
+  "Beauty": {
+    "Denti": [ "Spazzolino", "Dentifricio", "Filo interdentale" ],
+    "Doccia": [ "Shampoo", "Bagno doccia", "Deodorante", "Accappatoio", "Asciugamano piccolo capelli", "Asciugamano grande piedi", "Pettine", "Ciabatte" ],
+    "Acne": {
+      "Crema serale": 1,
+      "Crema mattutina": 1,
+      "Compresse pranzo": "numeroDiGiorni * 1"
+    },
+    "Bellezza personale": {
+      "Cotton Fioc": "numeroDiGiorni / 3",
+      "Profumo": 1,
+      "Lametta barba": 1,
+      "Cera": "numeroDiGiorni * 1"
+    },
+    "Medicinali": {
+      "Tachipirina": 2,
+      "Pasta fissan": 1,
+      "Cerotti normali": 2,
+      "Cerotti Vesciche": 2
+    },
+    "Igienizzante spray": 1,
+    "Borsetta roba onta": 1
+
+  },
+
+  "Bicicletta": {
+    "Maglia tecnica": "numeroDiVolte * 1",
+    "Pantaloni da bici": "numeroDiVolte * 1",
+    "Calze tecniche": "numeroDiVolte * 1",
+    "Scarpe da ginnastica": 1
+  },
+
+  "Campeggio": [ "Materassino", "Pompa materassino", "Sacco a pelo", "Cuscino gonfiabile" ],
+
+  "Elettronica": {
+    "Smartphone": [ "Carica cellulare", "Cavo 3m usb-c" ],
+    "Orologio": [ "Carica orologio", "Caricatore" ],
+    "Powerbank": [ "Powerbank", "Cavo usb-c" ],
+    "Auricolari": 1,
+    "Multipla": 1
+  },
+
+  "Piscina": {
+    "Costume": "numeroDiVolte * 1",
+    "Cuffia": 1,
+    "Telo mare": 1,
+    "Borsetta roba onta": 1,
+    "Crema solare faccia": 1,
+    "Crema solare corpo": 1
+  },
+
+  "Svago": {
+    "Carte": [ "Carte da briscola", "Carte da scala 40" ],
+    "Libro": 1
+  },
+
+  "Utility": {
+    "Borraccia da 1.5 lt": 1,
+    "Borraccia da 0.5 lt": 1,
+    "Mascherina ffp2": 1,
+    "Occhiali da sole": 1,
+    "Berretto": 1,
+    "Tappi per le orecchie": 1,
+    "Fazzoletti": "numeroDiGiorni / 2"
+  },
+
+  "Vestiti estate": {
+    "Magliette": "numeroDiGiorni * 1",
+    "Pantaloni corti": "numeroDiGiorni / 3",
+    "Pantaloni lunghi": "numeroDiGiorni / 3",
+    "Cintura": 1,
+    "Felpe": 1,
+    "Mutande": "numeroDiGiorni + 1",
+    "Calze": "numeroDiGiorni",
+    "Pigiama": [ "Maglietta", "Pantaloni" ],
+    "Borsetta roba onta": 1
+  },
+
+  "Vestiti Inverno": {
+    "Magliette": "numeroDiGiorni * 1",
+    "Pantaloni lunghi": "numeroDiGiorni / 3",
+    "Cintura": 1,
+    "Felpe": "numeroDiGiorni / 2",
+    "Kway": 1,
+    "Mutande": "numeroDiGiorni + 1",
+    "Calze": "numeroDiGiorni",
+    "Pigiama": [ "Maglietta", "Canutiera", "Pantaloni" ],
+    "Borsetta roba onta": 1
+  }
+}
