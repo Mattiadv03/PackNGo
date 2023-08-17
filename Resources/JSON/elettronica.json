@@ -1,0 +1,7 @@
+{
+    "Smartphone": ["Carica cellulare", "Cavo 3m usb-c"],
+    "Orologio": ["Carica orologio", "Caricatore"],
+    "Powerbank": ["Powerbank", "Cavo usb-c"],
+    "Auricolari": 1,
+    "Multipla": 1
+}

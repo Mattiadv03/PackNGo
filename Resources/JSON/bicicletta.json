@@ -1,0 +1,6 @@
+{
+    "Maglia tecnica": "numeroDiVolte * 1",
+    "Pantaloni da bici": "numeroDiVolte * 1",
+    "Calze tecniche": "numeroDiVolte * 1",
+    "Scarpe da ginnastica": 1
+}
