@@ -4,9 +4,13 @@ namespace Pack__n__Go
 {
     public partial class Mare : ContentPage
     {
-        public Mare()
+        string stagione;
+
+        public Mare(string stagione)
         {
             InitializeComponent();
+
+            this.stagione = stagione;
 
             GeneraCheckBox();
         }
@@ -43,7 +47,7 @@ namespace Pack__n__Go
 
         private void backClicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Navigation.PopAsync();
         }
     }
 }
