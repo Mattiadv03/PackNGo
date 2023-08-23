@@ -7,24 +7,14 @@
             InitializeComponent();
         }
 
-        private void MareImageClicked(object sender, EventArgs e)
+        private void HotImageClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Mare());
+            Navigation.PushAsync(new Categoria("estate"));
         }
-        
-        private void MontagnaImageClicked(object sender, EventArgs e)
+
+        private void ColdImageClicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
-        }
-        
-        private void LagoImageClicked(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-        
-        private void VisitaImageClicked(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
+            Navigation.PushAsync(new Categoria("inverno"));
         }
     }
 }

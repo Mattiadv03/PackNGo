@@ -5,38 +5,23 @@
 
     <ScrollView>
         <VerticalStackLayout Spacing="25" Padding="0" VerticalOptions="Center">
-
             <Label Text="Pack 'n' Go" x:Name="titolo" FontSize="36" FontAttributes="Bold" HorizontalTextAlignment="Center" />
 
-            <Label Text="Scegli il tipo di vacanza" x:Name="sottotitolo" FontSize="24" HorizontalTextAlignment="Center" />
+            <Label Text="Scegli la stagione:" x:Name="sottotitolo" FontSize="24" HorizontalTextAlignment="Center" />
 
             <StackLayout HorizontalOptions="Center" Orientation="Horizontal" >
-                <!-- Mare -->
+                <!-- Estate -->
                 <StackLayout Padding="0" HorizontalOptions="Center" VerticalOptions="Center" >
-                    <ImageButton Source="mare.jpg" x:Name="mareImage" Clicked="MareImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
-                    <Label Text="Mare" FontSize="18" HorizontalTextAlignment="Center" />
+                    <ImageButton Source="hot.jpg" x:Name="hotImage" Clicked="HotImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
+                    <Label Text="Estate" FontSize="18" HorizontalTextAlignment="Center" />
                 </StackLayout>
 
-                <!-- Montagna -->
+                <!-- Inverno -->
                 <StackLayout Padding="0" HorizontalOptions="Center" VerticalOptions="Center" >
-                    <ImageButton Source="montagna.jpg" x:Name="montagnaImage" Clicked="MontagnaImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
-                    <Label Text="Montagna" FontSize="18" HorizontalTextAlignment="Center" />
+                    <ImageButton Source="cold.jpg" x:Name="coldImage" Clicked="ColdImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
+                    <Label Text="Inverno" FontSize="18" HorizontalTextAlignment="Center" />
                 </StackLayout>
-
-                <!-- Lago -->
-                <StackLayout Padding="0" HorizontalOptions="Center" VerticalOptions="Center" >
-                    <ImageButton Source="lago.jpg" x:Name="lagoImage" Clicked="LagoImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
-                    <Label Text="Lago" FontSize="18" HorizontalTextAlignment="Center" />
-                </StackLayout>
-
-                <!-- Visita città d'arte -->
-                <StackLayout Padding="0" HorizontalOptions="Center" VerticalOptions="Center" >
-                    <ImageButton Source="colosseo.jpg" x:Name="visitaImage" Clicked="VisitaImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
-                    <Label Text="Visita" FontSize="18" HorizontalTextAlignment="Center" />
-                </StackLayout>
-
             </StackLayout>
-
         </VerticalStackLayout>
     </ScrollView>
 
