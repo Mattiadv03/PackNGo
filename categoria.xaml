@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pack__n__Go.Categoria">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="0" VerticalOptions="Center">
+
+            <Label Text="Pack 'n' Go" x:Name="titolo" FontSize="36" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+
+            <Label Text="Scegli il tipo di vacanza" x:Name="sottotitolo" FontSize="24" HorizontalTextAlignment="Center" />
+
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal" >
+                <!-- Mare -->
+                <StackLayout Padding="0" HorizontalOptions="Center" VerticalOptions="Center" >
+                    <ImageButton Source="mare.jpg" x:Name="mareImage" Clicked="MareImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
+                    <Label Text="Mare" FontSize="18" HorizontalTextAlignment="Center" />
+                </StackLayout>
+
+                <!-- Montagna -->
+                <StackLayout Padding="0" HorizontalOptions="Center" VerticalOptions="Center" >
+                    <ImageButton Source="montagna.jpg" x:Name="montagnaImage" Clicked="MontagnaImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
+                    <Label Text="Montagna" FontSize="18" HorizontalTextAlignment="Center" />
+                </StackLayout>
+
+                <!-- Lago -->
+                <StackLayout Padding="0" HorizontalOptions="Center" VerticalOptions="Center" >
+                    <ImageButton Source="lago.jpg" x:Name="lagoImage" Clicked="LagoImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
+                    <Label Text="Lago" FontSize="18" HorizontalTextAlignment="Center" />
+                </StackLayout>
+
+                <!-- Visita città d'arte -->
+                <StackLayout Padding="0" HorizontalOptions="Center" VerticalOptions="Center" >
+                    <ImageButton Source="colosseo.jpg" x:Name="visitaImage" Clicked="VisitaImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
+                    <Label Text="Visita" FontSize="18" HorizontalTextAlignment="Center" />
+                </StackLayout>
+
+            </StackLayout>
+
+            <Button Text="stagione errata" x:Name="backButton" Clicked="backClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+</ContentPage>
