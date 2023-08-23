@@ -1,4 +1,6 @@
 ﻿using Microsoft.Maui.Storage;
+using Newtonsoft.Json;
+using System.Reflection;
 
 namespace Pack__n__Go
 {
@@ -19,30 +21,37 @@ namespace Pack__n__Go
         {
             CheckBox checkBox;
 
-            // Leggo il numero di categorie
-            //string directory = Path.GetDirectoryName("Resources/JSON/beauty.json");
-            //int numeroDiCategorie = Directory.GetFiles("Resources/JSON/", "*.json").Length;
+            // Ottieni l'assembly corrente
+            var assembly = Assembly.GetExecutingAssembly();
 
-            int numeroDiCategorie = 0;
+            // Ottieni il nome completo della risorsa (deve includere il namespace)
+            var resourceName = "Pack__n__Go.Resources.JSON.items.json";
 
-            string directory = Path.Combine(AppDomain.CurrentDomain.FriendlyName, "Resources", "JSON");
-
-            if (Directory.Exists(directory))
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
-                string[] jsonFileNames = Directory.GetFiles(directory, "*.json").Select(Path.GetFileName).ToArray();
-
-                foreach (string fileName in jsonFileNames)
+                if (stream != null)
                 {
-                    numeroDiCategorie++;
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        string jsonContent = reader.ReadToEnd();
+
+                        Root jsonDeserialized = JsonConvert.DeserializeObject<Root>(jsonContent);
+
+                        // Ora puoi utilizzare l'oggetto 'jsonDeserialized' come necessario
+                    }
                 }
             }
 
+            
+
+
+
 
             // Creo le checkboox per ogni categoria
-            for (int i = 0; i < numeroDiCategorie; i++)
+            /*for (int i = 0; i < numeroDiCategorie; i++)
             {
                 checkBox = new CheckBox { IsChecked = false };
-            }
+            }*/
         }
 
         private void backClicked(object sender, EventArgs e)
