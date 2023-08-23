@@ -54,12 +54,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="categoria.xaml.cs">
+	    <DependentUpon>categoria.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="mare.xaml.cs">
 	    <DependentUpon>mare.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="categoria.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="mare.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
