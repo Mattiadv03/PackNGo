@@ -1,6 +1,5 @@
-﻿using Microsoft.Maui.Storage;
-using Newtonsoft.Json;
-using System.Reflection;
+﻿using Newtonsoft.Json;
+using Microsoft.Maui.Controls;
 
 namespace Pack__n__Go
 {
@@ -14,44 +13,67 @@ namespace Pack__n__Go
 
             this.stagione = stagione;
 
-            GeneraCheckBox();
+            GeneraCheckBoxAsync();
         }
 
-        private void GeneraCheckBox()
+        private async Task GeneraCheckBoxAsync()
         {
-            CheckBox checkBox;
+            // Controllo se è connesso
+            NetworkAccess accessType = Connectivity.Current.NetworkAccess;
 
-            // Ottieni l'assembly corrente
-            var assembly = Assembly.GetExecutingAssembly();
-
-            // Ottieni il nome completo della risorsa (deve includere il namespace)
-            var resourceName = "Pack__n__Go.Resources.JSON.items.json";
-
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            if (accessType == NetworkAccess.Internet)
             {
-                if (stream != null)
+                // Il percorso del file JSON da Internet
+                string path = "https://raw.githubusercontent.com/Mattiadv03/PackNGo/master/Resources/JSON/items.json";
+
+                // Crea un'istanza di HttpClient
+                HttpClient client = new HttpClient();
+
+                // Scarica il file JSON da Internet
+                HttpResponseMessage response = await client.GetAsync(path);
+
+                // Controlla se la richiesta è andata a buon fine
+                if (response.IsSuccessStatusCode)
                 {
-                    using (StreamReader reader = new StreamReader(stream))
+                    // Ottieni il corpo della risposta
+                    string data = await response.Content.ReadAsStringAsync();
+
+                    // Deserializza il JSON
+                    Root items = JsonConvert.DeserializeObject<Root>(data);
+
+                    // Creo le checkbox per ogni categoria
+                    foreach (var proprietà in items.GetType().GetProperties())
                     {
-                        string jsonContent = reader.ReadToEnd();
+                        // Crea una checkbox
+                        CheckBox checkBox = new CheckBox
+                        {
+                            IsChecked = false
+                        };
 
-                        Root jsonDeserialized = JsonConvert.DeserializeObject<Root>(jsonContent);
+                        // Crea una label
+                        Label label = new Label
+                        {
+                            Text = proprietà.Name
+                        };
 
-                        // Ora puoi utilizzare l'oggetto 'jsonDeserialized' come necessario
+                        // StackLayout padre per ogni gruppo checkbox + label
+                        StackLayout stackLayoutPadre = new StackLayout
+                        {
+                            Padding = new Thickness(0),
+                            HorizontalOptions = LayoutOptions.Start,
+                            VerticalOptions = LayoutOptions.Center,
+                            Orientation = StackOrientation.Horizontal
+                        };
+
+                        stackLayoutPadre.Children.Add(checkBox);
+                        stackLayoutPadre.Children.Add(label);
+
+                        // Aggiungi la checkbox e la label al layout
+                        StackLayout stackLayout = this.FindByName<StackLayout>("layoutCheckBox");
+                        stackLayout.Children.Add(stackLayoutPadre);
                     }
                 }
             }
-
-            
-
-
-
-
-            // Creo le checkboox per ogni categoria
-            /*for (int i = 0; i < numeroDiCategorie; i++)
-            {
-                checkBox = new CheckBox { IsChecked = false };
-            }*/
         }
 
         private void backClicked(object sender, EventArgs e)
