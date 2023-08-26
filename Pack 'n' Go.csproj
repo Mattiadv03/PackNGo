@@ -57,8 +57,8 @@
 	  <Compile Update="categoria.xaml.cs">
 	    <DependentUpon>categoria.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="mare.xaml.cs">
-	    <DependentUpon>mare.xaml</DependentUpon>
+	  <Compile Update="optionals.xaml.cs">
+	    <DependentUpon>optionals.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -66,7 +66,7 @@
 	  <MauiXaml Update="categoria.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="mare.xaml">
+	  <MauiXaml Update="optionals.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
