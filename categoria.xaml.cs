@@ -13,7 +13,7 @@
 
         private void MareImageClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Mare(stagione));
+            Navigation.PushAsync(new Optionals(stagione));
         }
         
         private void MontagnaImageClicked(object sender, EventArgs e)
