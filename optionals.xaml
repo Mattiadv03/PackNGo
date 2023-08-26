@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Pack__n__Go.Mare">
+             x:Class="Pack__n__Go.Optionals"
+             BackgroundColor="#121212">
 
     <ScrollView>
         <VerticalStackLayout Spacing="25" Padding="0" VerticalOptions="Center">
 
-            <Label Text="Mare" x:Name="titolo" FontSize="36" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+            <Label Text="*nomecategoria*" x:Name="titolo" FontSize="36" FontAttributes="Bold" HorizontalTextAlignment="Center" />
 
             <Label Text="Scegli, in base alle attività che devi svolgere, le cose da includere in valigia" x:Name="sottotitolo" FontSize="24" HorizontalTextAlignment="Center" />
 

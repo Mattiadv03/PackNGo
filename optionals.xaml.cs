@@ -3,11 +3,11 @@ using Microsoft.Maui.Controls;
 
 namespace Pack__n__Go
 {
-    public partial class Mare : ContentPage
+    public partial class Optionals : ContentPage
     {
         string stagione;
 
-        public Mare(string stagione)
+        public Optionals(string stagione)
         {
             InitializeComponent();
 
