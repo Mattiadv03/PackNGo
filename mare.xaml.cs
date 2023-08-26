@@ -13,10 +13,10 @@ namespace Pack__n__Go
 
             this.stagione = stagione;
 
-            GeneraCheckBoxAsync();
+            GeneraCheckBoxAsync(this.stagione);
         }
 
-        private async Task GeneraCheckBoxAsync()
+        private async Task GeneraCheckBoxAsync(string stagione)
         {
             // Controllo se è connesso
             NetworkAccess accessType = Connectivity.Current.NetworkAccess;
@@ -44,33 +44,45 @@ namespace Pack__n__Go
                     // Creo le checkbox per ogni categoria
                     foreach (var proprietà in items.GetType().GetProperties())
                     {
-                        // Crea una checkbox
-                        CheckBox checkBox = new CheckBox
+                        // Se le stagioni non corrispondono salto l'iterazione, così ottengo solo i vestiti per la stagione corretta
+                        if (stagione == "estate" && proprietà.Name == "VestitiInverno")
                         {
-                            IsChecked = false
-                        };
-
-                        // Crea una label
-                        Label label = new Label
+                            continue;
+                        } 
+                        else if (stagione == "inverno" && proprietà.Name == "VestitiEstate") 
                         {
-                            Text = proprietà.Name
-                        };
-
-                        // StackLayout padre per ogni gruppo checkbox + label
-                        StackLayout stackLayoutPadre = new StackLayout
+                            continue;
+                        }
+                        else
                         {
-                            Padding = new Thickness(0),
-                            HorizontalOptions = LayoutOptions.Start,
-                            VerticalOptions = LayoutOptions.Center,
-                            Orientation = StackOrientation.Horizontal
-                        };
+                            // Crea una checkbox
+                            CheckBox checkBox = new CheckBox
+                            {
+                                IsChecked = false
+                            };
 
-                        stackLayoutPadre.Children.Add(checkBox);
-                        stackLayoutPadre.Children.Add(label);
+                            // Crea una label
+                            Label label = new Label
+                            {
+                                Text = proprietà.Name
+                            };
 
-                        // Aggiungi la checkbox e la label al layout
-                        StackLayout stackLayout = this.FindByName<StackLayout>("layoutCheckBox");
-                        stackLayout.Children.Add(stackLayoutPadre);
+                            // StackLayout padre per ogni gruppo checkbox + label
+                            StackLayout stackLayoutPadre = new StackLayout
+                            {
+                                Padding = new Thickness(0),
+                                HorizontalOptions = LayoutOptions.Start,
+                                VerticalOptions = LayoutOptions.Center,
+                                Orientation = StackOrientation.Horizontal
+                            };
+
+                            stackLayoutPadre.Children.Add(checkBox);
+                            stackLayoutPadre.Children.Add(label);
+
+                            // Aggiungi la checkbox e la label al layout
+                            StackLayout stackLayout = this.FindByName<StackLayout>("layoutCheckBox");
+                            stackLayout.Children.Add(stackLayoutPadre);
+                        }
                     }
                 }
             }
