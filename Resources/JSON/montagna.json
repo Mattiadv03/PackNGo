@@ -1,0 +1,20 @@
+{
+    "Vestiti montagna estate cold": {
+        "Magliette normali": "numeroDiGiorni / 2",
+        "Magliette tecniche": "numeroDiGiorni * 1",
+        "Pantaloni corti normali": "numeroDiGiorni / 3",
+        "Pantaloni lunghi": "numeroDiGiorni / 4",
+        "Felpe": 1
+    },
+
+    "Vestiti montagna estate hot": {
+        "Magliette normali": "numeroDiGiorni / 2",
+        "Magliette tecniche": "numeroDiGiorni * 1",
+        "Pantaloni corti normali": "numeroDiGiorni / 3",
+        "Pantaloni lunghi": "1",
+        "Felpe": 1
+    },
+
+
+
+}
