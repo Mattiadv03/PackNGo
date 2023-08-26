@@ -1,0 +1,30 @@
+{
+    "Acne": {
+        "Crema serale": 1,
+        "Crema mattutina": 1,
+        "Compresse pranzo": "numeroDiGiorni * 1"
+    },
+
+    "Campeggio": [ "Materassino", "Pompa materassino", "Sacco a pelo", "Cuscino gonfiabile" ],
+
+    "Bicicletta": {
+        "Maglia tecnica": "numeroDiVolte * 1",
+        "Pantaloni da bici": "numeroDiVolte * 1",
+        "Calze tecniche": "numeroDiVolte * 1",
+        "Scarpe da ginnastica": 1
+    },
+
+    "Piscina": {
+        "Costume": "numeroDiVolte * 1",
+        "Cuffia": 1,
+        "Telo mare": 1,
+        "Borsetta roba onta": 1,
+        "Crema solare faccia": 1,
+        "Crema solare corpo": 1
+    },
+
+    "Svago": {
+        "Carte": [ "Carte da briscola", "Carte da scala 40" ],
+        "Libro": 1
+    }
+}
