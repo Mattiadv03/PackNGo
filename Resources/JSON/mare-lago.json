@@ -1,12 +1,12 @@
 {
-  "Vestiti estate": {
+  "Vestiti estate mare-lago": {
     "Magliette maniche lunghe": "numeroDiGiorni / 2",
     "Pantaloni corti": "numeroDiGiorni / 3",
     "Pantaloni lunghi": 1,
     "Felpe": 1
   },
 
-  "Vestiti inverno": {
+  "Vestiti inverno mare-lago": {
     "Magliette maniche lunghe": "numeroDiGiorni / 2",
     "Pantaloni lunghi": "numeroDiGiorni / 3",
     "Felpe": "numeroDiGiorni / 2",
