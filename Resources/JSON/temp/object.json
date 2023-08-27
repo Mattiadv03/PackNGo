@@ -1,0 +1,12 @@
+{
+    "Svago": {
+        "Neve": {
+            "Giacca da neve": 2,
+            "Pantaloni da neve": 2,
+            "Calze grosse da neve": "numeroDiGiorni * 1",
+            "Scarponcini/Doposcii": 1,
+            "Berretto da neve": 1,
+            "Calza maglia": 1
+        }
+    }
+}
