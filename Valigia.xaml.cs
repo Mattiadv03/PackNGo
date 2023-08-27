@@ -58,7 +58,8 @@ namespace Pack__n__Go
         private async Task JsonToCheckBox(string nomeFile)
         {
             // Leggo da Github il file
-            string path = "https://raw.githubusercontent.com/Mattiadv03/PackNGo/master/Resources/JSON/" + nomeFile;
+            //string path = "https://raw.githubusercontent.com/Mattiadv03/PackNGo/master/Resources/JSON/" + nomeFile;
+            string path = "https://raw.githubusercontent.com/Mattiadv03/PackNGo/master/Resources/JSON/temp/string.json";
 
             // Creo un'istanza di HttpClient
             HttpClient client = new HttpClient();
@@ -77,34 +78,17 @@ namespace Pack__n__Go
                 {
                     Default datiDefault = JsonConvert.DeserializeObject<Default>(data);
 
-                    foreach (var categoryProperty in datiDefault.GetType().GetProperties())
+                    // Prendo tutte gli oggetti nel file
+                    foreach(PropertyInfo proprieta in datiDefault.GetType().GetProperties())
                     {
-                        var categoryValue = categoryProperty.GetValue(datiDefault);
-                        data = categoryValue.ToString();
+                        object categoryValue = proprieta.GetValue(datiDefault);
 
-                        Console.WriteLine(categoryValue.GetType());
+                        
 
-                        if (categoryValue is string[] itemList)
+                        // Leggo gli oggetti contenuti in proprietà
+                        if (categoryValue is string stringValue)
                         {
-                            Console.WriteLine($"{categoryProperty.Name}:");
-
-                            foreach (var item in itemList)
-                            {
-                                Console.WriteLine($"- {item}");
-                            }
-                        }
-                        else if (categoryValue is Dictionary<string, object> itemDictionary)
-                        {
-                            Console.WriteLine($"{categoryProperty.Name}:");
-
-                            foreach (var kvp in itemDictionary)
-                            {
-                                Console.WriteLine($"- {kvp.Key}: {kvp.Value}");
-                            }
-                        }
-                        else if (categoryValue is int intValue)
-                        {
-                            Console.WriteLine($"{categoryProperty.Name}: {intValue}");
+                            Console.WriteLine($"{proprieta.Name}: {stringValue}");
                         }
                     }
 
