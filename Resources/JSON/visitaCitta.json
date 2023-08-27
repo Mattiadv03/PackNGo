@@ -1,12 +1,12 @@
 {
-    "Vestiti estate": {
+    "Vestiti estate citta": {
         "Magliette normali": "numeroDiGiorni * 1",
         "Pantaloni corti normali": "numeroDiGiorni / 3",
         "Felpe": "numeroDiGiorni / 4",
         "Pantaloni lunghi": "numeroDiGiorni / 4"
     },
 
-    "Vestiti inverno": {
+    "Vestiti inverno citta": {
         "Magliette normali maniche lunghe": "numeroDiGiorni / 2",
         "Magliette termiche maniche lunghe": "numeroDiGiorni * 1",
         "Canutiere normali": "numeroDiGiorni / 2",
