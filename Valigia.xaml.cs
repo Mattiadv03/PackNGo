@@ -74,30 +74,198 @@ namespace Pack__n__Go
                 // Deserializzo il JSON
                 if(nomeFile == "default.json")
                 {
-                    Default myDeserializedClass = JsonConvert.DeserializeObject<Default>(data);
+                    Default datiDefault = JsonConvert.DeserializeObject<Default>(data);
+
+                    // Creo le checkbox per ogni categoria
+                    foreach (var proprietà in datiDefault.GetType().GetProperties())
+                    {
+                        // Crea una checkbox
+                        CheckBox checkBox = new CheckBox
+                        {
+                            IsChecked = false,
+                            Color = Color.FromHex("#BB86FC")
+                        };
+
+                        // Crea una label
+                        Label label = new Label
+                        {
+                            Text = proprietà.Name
+                        };
+
+                        // StackLayout padre per ogni gruppo checkbox + label
+                        StackLayout stackLayoutPadre = new StackLayout
+                        {
+                            Padding = new Thickness(0),
+                            HorizontalOptions = LayoutOptions.Start,
+                            VerticalOptions = LayoutOptions.Center,
+                            Orientation = StackOrientation.Horizontal
+                        };
+
+                        stackLayoutPadre.Children.Add(checkBox);
+                        stackLayoutPadre.Children.Add(label);
+
+                        // Aggiungi la checkbox e la label al layout
+                        StackLayout stackLayout = this.FindByName<StackLayout>("layoutCheckBox");
+                        stackLayout.Children.Add(stackLayoutPadre);
+                    }
                 }  
                 else if (nomeFile == "optionals.json")
                 {
                     Opzionali opzionali = JsonConvert.DeserializeObject<Opzionali>(data);
+
+                    // Creo le checkbox per ogni categoria
+                    foreach (var proprietà in opzionali.GetType().GetProperties())
+                    {
+                        // Crea una checkbox
+                        CheckBox checkBox = new CheckBox
+                        {
+                            IsChecked = false,
+                            Color = Color.FromHex("#BB86FC")
+                        };
+
+                        // Crea una label
+                        Label label = new Label
+                        {
+                            Text = proprietà.Name
+                        };
+
+                        // StackLayout padre per ogni gruppo checkbox + label
+                        StackLayout stackLayoutPadre = new StackLayout
+                        {
+                            Padding = new Thickness(0),
+                            HorizontalOptions = LayoutOptions.Start,
+                            VerticalOptions = LayoutOptions.Center,
+                            Orientation = StackOrientation.Horizontal
+                        };
+
+                        stackLayoutPadre.Children.Add(checkBox);
+                        stackLayoutPadre.Children.Add(label);
+
+                        // Aggiungi la checkbox e la label al layout
+                        StackLayout stackLayout = this.FindByName<StackLayout>("layoutCheckBox");
+                        stackLayout.Children.Add(stackLayoutPadre);
+                    }
                 }
                 else if (nomeFile == "mare-lago.json")
                 {
                     Mare_lago mare_lago = JsonConvert.DeserializeObject<Mare_lago>(data);
+
+                    // Creo le checkbox per ogni categoria
+                    foreach (var proprietà in mare_lago.GetType().GetProperties())
+                    {
+                        // Crea una checkbox
+                        CheckBox checkBox = new CheckBox
+                        {
+                            IsChecked = false,
+                            Color = Color.FromHex("#BB86FC")
+                        };
+
+                        // Crea una label
+                        Label label = new Label
+                        {
+                            Text = proprietà.Name
+                        };
+
+                        // StackLayout padre per ogni gruppo checkbox + label
+                        StackLayout stackLayoutPadre = new StackLayout
+                        {
+                            Padding = new Thickness(0),
+                            HorizontalOptions = LayoutOptions.Start,
+                            VerticalOptions = LayoutOptions.Center,
+                            Orientation = StackOrientation.Horizontal
+                        };
+
+                        stackLayoutPadre.Children.Add(checkBox);
+                        stackLayoutPadre.Children.Add(label);
+
+                        // Aggiungi la checkbox e la label al layout
+                        StackLayout stackLayout = this.FindByName<StackLayout>("layoutCheckBox");
+                        stackLayout.Children.Add(stackLayoutPadre);
+                    }
                 }
                 else if (nomeFile == "montagna.json")
                 {
                     Montagna montagna = JsonConvert.DeserializeObject<Montagna>(data);
+
+                    // Creo le checkbox per ogni categoria
+                    foreach (var proprietà in montagna.GetType().GetProperties())
+                    {
+                        // Crea una checkbox
+                        CheckBox checkBox = new CheckBox
+                        {
+                            IsChecked = false,
+                            Color = Color.FromHex("#BB86FC")
+                        };
+
+                        // Crea una label
+                        Label label = new Label
+                        {
+                            Text = proprietà.Name
+                        };
+
+                        // StackLayout padre per ogni gruppo checkbox + label
+                        StackLayout stackLayoutPadre = new StackLayout
+                        {
+                            Padding = new Thickness(0),
+                            HorizontalOptions = LayoutOptions.Start,
+                            VerticalOptions = LayoutOptions.Center,
+                            Orientation = StackOrientation.Horizontal
+                        };
+
+                        stackLayoutPadre.Children.Add(checkBox);
+                        stackLayoutPadre.Children.Add(label);
+
+                        // Aggiungi la checkbox e la label al layout
+                        StackLayout stackLayout = this.FindByName<StackLayout>("layoutCheckBox");
+                        stackLayout.Children.Add(stackLayoutPadre);
+                    }
                 }
                 else if (nomeFile == "visitaCitta.json")
                 {
                     VisitaCitta visitaCitta = JsonConvert.DeserializeObject<VisitaCitta>(data);
+
+                    // Creo le checkbox per ogni categoria
+                    foreach (var proprietà in visitaCitta.GetType().GetProperties())
+                    {
+                        // Crea una checkbox
+                        CheckBox checkBox = new CheckBox
+                        {
+                            IsChecked = false,
+                            Color = Color.FromHex("#BB86FC")
+                        };
+
+                        // Crea una label
+                        Label label = new Label
+                        {
+                            Text = proprietà.Name
+                        };
+
+                        // StackLayout padre per ogni gruppo checkbox + label
+                        StackLayout stackLayoutPadre = new StackLayout
+                        {
+                            Padding = new Thickness(0),
+                            HorizontalOptions = LayoutOptions.Start,
+                            VerticalOptions = LayoutOptions.Center,
+                            Orientation = StackOrientation.Horizontal
+                        };
+
+                        stackLayoutPadre.Children.Add(checkBox);
+                        stackLayoutPadre.Children.Add(label);
+
+                        // Aggiungi la checkbox e la label al layout
+                        StackLayout stackLayout = this.FindByName<StackLayout>("layoutCheckBox");
+                        stackLayout.Children.Add(stackLayoutPadre);
+                    }
                 }
                 else
                 {
-                    await DisplayAlert("Errore", "Nome del file da caricare errato, controllare codice", "OK");
+                    DisplayAlert("Errore", "Nome del file da caricare errato, controllare codice", "OK");
                 }
             }
-
+            else
+            {
+                await DisplayAlert("Errore", "Connettiti a internet per utilizzare l'applicazione", "OK");
+            }
         }
 
 
