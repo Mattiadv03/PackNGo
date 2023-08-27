@@ -38,7 +38,7 @@
 
             </StackLayout>
 
-            <Button Text="stagione errata" x:Name="backButton" Clicked="backClicked"/>
+            <Button Text="stagione errata" x:Name="backButton" Clicked="BackClicked"/>
 
         </VerticalStackLayout>
     </ScrollView>
