@@ -82,19 +82,19 @@ namespace Pack__n__Go
                 }
                 else if (nomeFile == "mare-lago.json")
                 {
-                    Mare_lago myDeserializedClass = JsonConvert.DeserializeObject<Mare_lago>(data);
+                    Mare_lago mare_lago = JsonConvert.DeserializeObject<Mare_lago>(data);
                 }
                 else if (nomeFile == "montagna.json")
                 {
-
+                    Montagna montagna = JsonConvert.DeserializeObject<Montagna>(data);
                 }
                 else if (nomeFile == "visitaCitta.json")
                 {
-
+                    VisitaCitta visitaCitta = JsonConvert.DeserializeObject<VisitaCitta>(data);
                 }
                 else
                 {
-                    DisplayAlert("Errore", "Nome del file da caricare errato, controllare codice", "OK");
+                    await DisplayAlert("Errore", "Nome del file da caricare errato, controllare codice", "OK");
                 }
             }
 
