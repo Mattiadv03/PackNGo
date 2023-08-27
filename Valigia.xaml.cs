@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Reflection;
 
 namespace Pack__n__Go
 {
@@ -35,7 +36,7 @@ namespace Pack__n__Go
                 // Genero la label con la categoria scelta
                 Label categoriaScelta = new Label
                 {
-                    Text = "Valigia" + categoriaMaiuscola,
+                    Text = "Valigia " + categoriaMaiuscola,
                     FontSize = 30,
                     FontAttributes = FontAttributes.Bold,
                     HorizontalTextAlignment = TextAlignment.Center
@@ -68,7 +69,7 @@ namespace Pack__n__Go
             // Controllo se la richiesta è andata a buon fine
             if (response.IsSuccessStatusCode)
             {
-                // Ottiengo il corpo della risposta
+                // Ottengo il corpo della risposta
                 string data = await response.Content.ReadAsStringAsync();
 
                 // Deserializzo il JSON
@@ -76,9 +77,56 @@ namespace Pack__n__Go
                 {
                     Default datiDefault = JsonConvert.DeserializeObject<Default>(data);
 
-                    // Creo le checkbox per ogni categoria
+                    foreach (var categoryProperty in datiDefault.GetType().GetProperties())
+                    {
+                        var categoryValue = categoryProperty.GetValue(datiDefault);
+                        data = categoryValue.ToString();
+
+                        Console.WriteLine(categoryValue.GetType());
+
+                        if (categoryValue is string[] itemList)
+                        {
+                            Console.WriteLine($"{categoryProperty.Name}:");
+
+                            foreach (var item in itemList)
+                            {
+                                Console.WriteLine($"- {item}");
+                            }
+                        }
+                        else if (categoryValue is Dictionary<string, object> itemDictionary)
+                        {
+                            Console.WriteLine($"{categoryProperty.Name}:");
+
+                            foreach (var kvp in itemDictionary)
+                            {
+                                Console.WriteLine($"- {kvp.Key}: {kvp.Value}");
+                            }
+                        }
+                        else if (categoryValue is int intValue)
+                        {
+                            Console.WriteLine($"{categoryProperty.Name}: {intValue}");
+                        }
+                    }
+
+                    /*// Itera sull'oggetto JSON
                     foreach (var proprietà in datiDefault.GetType().GetProperties())
                     {
+                        // Itera sull'array e stampa il valore di ogni elemento
+                        foreach (string elemento in proprietà.GetValue(datiDefault))
+                        {
+                            Console.WriteLine("Elemento: {0}", elemento);
+                        }
+                    }*/
+
+                    // Creo le checkbox per ogni categoria
+                    foreach (var proprieta in datiDefault.GetType().GetProperties())
+                    {
+
+                        /*foreach (string elemento in proprieta)
+                        {
+                            Console.WriteLine("Elemento: {0}", elemento);
+                        }*/
+
                         // Crea una checkbox
                         CheckBox checkBox = new CheckBox
                         {
@@ -89,7 +137,7 @@ namespace Pack__n__Go
                         // Crea una label
                         Label label = new Label
                         {
-                            Text = proprietà.Name
+                            //Text = proprieta
                         };
 
                         // StackLayout padre per ogni gruppo checkbox + label
@@ -105,7 +153,7 @@ namespace Pack__n__Go
                         stackLayoutPadre.Children.Add(label);
 
                         // Aggiungi la checkbox e la label al layout
-                        StackLayout stackLayout = this.FindByName<StackLayout>("layoutCheckBox");
+                        StackLayout stackLayout = this.FindByName<StackLayout>("stackLayoutListaOggetti");
                         stackLayout.Children.Add(stackLayoutPadre);
                     }
                 }  
@@ -142,7 +190,7 @@ namespace Pack__n__Go
                         stackLayoutPadre.Children.Add(label);
 
                         // Aggiungi la checkbox e la label al layout
-                        StackLayout stackLayout = this.FindByName<StackLayout>("layoutCheckBox");
+                        StackLayout stackLayout = this.FindByName<StackLayout>("stackLayoutListaOggetti");
                         stackLayout.Children.Add(stackLayoutPadre);
                     }
                 }
@@ -153,34 +201,46 @@ namespace Pack__n__Go
                     // Creo le checkbox per ogni categoria
                     foreach (var proprietà in mare_lago.GetType().GetProperties())
                     {
-                        // Crea una checkbox
-                        CheckBox checkBox = new CheckBox
+                        // Filtro in base alla stagione
+                        if(stagione == "estate" && proprietà.Name == "Vestitiinverno")
                         {
-                            IsChecked = false,
-                            Color = Color.FromHex("#BB86FC")
-                        };
-
-                        // Crea una label
-                        Label label = new Label
+                            continue;
+                        }
+                        else if (stagione == "inverno" && proprietà.Name == "Vestitiestate")
                         {
-                            Text = proprietà.Name
-                        };
-
-                        // StackLayout padre per ogni gruppo checkbox + label
-                        StackLayout stackLayoutPadre = new StackLayout
+                            continue;
+                        }
+                        else 
                         {
-                            Padding = new Thickness(0),
-                            HorizontalOptions = LayoutOptions.Start,
-                            VerticalOptions = LayoutOptions.Center,
-                            Orientation = StackOrientation.Horizontal
-                        };
+                            // Crea una checkbox
+                            CheckBox checkBox = new CheckBox
+                            {
+                                IsChecked = false,
+                                Color = Color.FromHex("#BB86FC")
+                            };
 
-                        stackLayoutPadre.Children.Add(checkBox);
-                        stackLayoutPadre.Children.Add(label);
+                            // Crea una label
+                            Label label = new Label
+                            {
+                                Text = proprietà.Name
+                            };
 
-                        // Aggiungi la checkbox e la label al layout
-                        StackLayout stackLayout = this.FindByName<StackLayout>("layoutCheckBox");
-                        stackLayout.Children.Add(stackLayoutPadre);
+                            // StackLayout padre per ogni gruppo checkbox + label
+                            StackLayout stackLayoutPadre = new StackLayout
+                            {
+                                Padding = new Thickness(0),
+                                HorizontalOptions = LayoutOptions.Start,
+                                VerticalOptions = LayoutOptions.Center,
+                                Orientation = StackOrientation.Horizontal
+                            };
+
+                            stackLayoutPadre.Children.Add(checkBox);
+                            stackLayoutPadre.Children.Add(label);
+
+                            // Aggiungi la checkbox e la label al layout
+                            StackLayout stackLayout = this.FindByName<StackLayout>("stackLayoutListaOggetti");
+                            stackLayout.Children.Add(stackLayoutPadre);
+                        }
                     }
                 }
                 else if (nomeFile == "montagna.json")
@@ -216,7 +276,7 @@ namespace Pack__n__Go
                         stackLayoutPadre.Children.Add(label);
 
                         // Aggiungi la checkbox e la label al layout
-                        StackLayout stackLayout = this.FindByName<StackLayout>("layoutCheckBox");
+                        StackLayout stackLayout = this.FindByName<StackLayout>("stackLayoutListaOggetti");
                         stackLayout.Children.Add(stackLayoutPadre);
                     }
                 }
@@ -253,13 +313,13 @@ namespace Pack__n__Go
                         stackLayoutPadre.Children.Add(label);
 
                         // Aggiungi la checkbox e la label al layout
-                        StackLayout stackLayout = this.FindByName<StackLayout>("layoutCheckBox");
+                        StackLayout stackLayout = this.FindByName<StackLayout>("stackLayoutListaOggetti");
                         stackLayout.Children.Add(stackLayoutPadre);
                     }
                 }
                 else
                 {
-                    DisplayAlert("Errore", "Nome del file da caricare errato, controllare codice", "OK");
+                    await DisplayAlert("Errore", "Nome del file da caricare errato, controllare codice", "OK");
                 }
             }
             else
