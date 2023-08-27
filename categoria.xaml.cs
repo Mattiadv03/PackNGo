@@ -13,25 +13,25 @@
 
         private void MareImageClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Optionals(stagione));
+            Navigation.PushAsync(new Optionals(stagione, "mare"));
         }
         
         private void MontagnaImageClicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Navigation.PushAsync(new Optionals(stagione, "montagna"));
         }
         
         private void LagoImageClicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Navigation.PushAsync(new Optionals(stagione, "lago"));
         }
         
         private void VisitaImageClicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Navigation.PushAsync(new Optionals(stagione, "visitaCitta"));
         }
 
-        private void backClicked(object sender, EventArgs e)
+        private void BackClicked(object sender, EventArgs e)
         {
             Navigation.PopAsync();
         }
