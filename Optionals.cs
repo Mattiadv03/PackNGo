@@ -133,7 +133,7 @@ namespace Pack__n__Go
         public int Libro { get; set; }
         public Neve Neve { get; set; }
     }
-    public partial class Optionals
+    public partial class Opzionali
     {
         [JsonProperty("Cura personale")]
         public CuraPersonale Curapersonale { get; set; }
