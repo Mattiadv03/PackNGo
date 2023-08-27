@@ -55,18 +55,24 @@
 
 	<ItemGroup>
 	  <Compile Update="categoria.xaml.cs">
-	    <DependentUpon>categoria.xaml</DependentUpon>
+	    <DependentUpon>Categoria.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Valigia.xaml.cs">
+	    <DependentUpon>Valigia.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="optionals.xaml.cs">
-	    <DependentUpon>optionals.xaml</DependentUpon>
+	    <DependentUpon>Optionals.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="categoria.xaml">
+	  <MauiXaml Update="Categoria.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="optionals.xaml">
+	  <MauiXaml Update="Valigia.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Optionals.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
