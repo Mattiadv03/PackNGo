@@ -1,19 +1,27 @@
 {
-    "Vestiti montagna estate cold": {
-        "Magliette normali": "numeroDiGiorni / 2",
+    "Vestiti estate": {
         "Magliette tecniche": "numeroDiGiorni * 1",
+        "Canutiere tecniche": "numeroDiGiorni * 1",
+        "Pantaloni tecnici": "numeroDiGiorni / 3",
+
+        "Magliette normali": "numeroDiGiorni / 2",
         "Pantaloni corti normali": "numeroDiGiorni / 3",
-        "Pantaloni lunghi": "numeroDiGiorni / 4",
-        "Felpe": 1
+        "Felpe": "numeroDiGiorni / 4",
+        "Pantaloni lunghi": "numeroDiGiorni / 4"
     },
 
-    "Vestiti montagna estate hot": {
-        "Magliette normali": "numeroDiGiorni / 2",
-        "Magliette tecniche": "numeroDiGiorni * 1",
-        "Pantaloni corti normali": "numeroDiGiorni / 3",
-        "Pantaloni lunghi": "1",
-        "Felpe": 1
-    },
+    "Vestiti inverno": {
+        "Magliette normali maniche lunghe": "numeroDiGiorni / 2",
+        "Magliette termiche maniche lunghe": "numeroDiGiorni * 1",
+        "Canutiere normali": "numeroDiGiorni / 2",
+        "Pantaloni corti normali": 1,
+        "Felpe": "numeroDiGiorni / 2",
+        "Pantaloni lunghi": "numeroDiGiorni / 2",
+
+        "Berretto": 1,
+        "Sciarpa": 1,
+        "Scaldacollo": 1
+    }
 
 
 
