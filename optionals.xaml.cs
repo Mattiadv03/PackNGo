@@ -1,8 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Microsoft.Maui.Controls;
-using static System.Net.Mime.MediaTypeNames;
-using System.Xml.Linq;
-using FileProvider;
 
 namespace Pack__n__Go
 {
@@ -154,6 +150,8 @@ namespace Pack__n__Go
 
         private void GeneraValigia(object sender, EventArgs e)
         {
+            checkboxTrue = new List<string>();
+
             // Prendo le chiavi delle checkbox true
             foreach (var keys in myCheckboxList.Keys)
             {
