@@ -1,9 +1,0 @@
-{
-  "Denti": ["Spazzolino", "Dentifricio", "Filo interdentale"],
-  "Doccia": ["Shampoo", "Bagno doccia", "Deodorante", "Accappatoio", "Asciugamano piccolo capelli", "Asciugamano grande piedi", "Pettine", "Ciabatte"],
-  "Acne": {"Crema serale": 1, "Crema mattutina": 1, "Compresse pranzo": "numeroDiGiorni * 1"},
-  "Bellezza personale": {"Cotton Fioc": "numeroDiGiorni / 3", "Profumo": 1, "Lametta barba": 1, "Cera": "numeroDiGiorni * 1"},
-  "Medicinali": {"Tachipirina": 2, "Pasta fissan": 1, "Cerotti normali": 2, "Cerotti Vesciche": 2},
-  "Igienizzante spray": 1,
-  "Borsetta roba onta": 1
-}
