@@ -5,6 +5,7 @@ namespace Pack__n__Go
     public partial class Optionals : ContentPage
     {
         string stagione;
+        int durata;
         string categoria;
         string categoriaMaiuscola;
         string nomeFileJSON;
@@ -15,11 +16,12 @@ namespace Pack__n__Go
         // Lista di checkbox true
         List<string> checkboxTrue;
 
-        public Optionals(string stagione, string categoria)
+        public Optionals(string stagione, int durata, string categoria)
         {
             InitializeComponent();
 
             this.stagione = stagione;
+            this.durata = durata;
             this.categoria = categoria;
 
             string[] temp = beautifyCategoria(this.categoria);
