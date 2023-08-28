@@ -151,13 +151,21 @@ namespace Pack__n__Go
                                     }
                                 };
 
+                                string nomeProprieta = intimoProperty.Name;
+
+                                // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
+                                if (intimoProperty.GetCustomAttribute<JsonPropertyAttribute>() != null)
+                                {
+                                    nomeProprieta = intimoProperty.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
+                                }
+
                                 if (intimoPropertyValue is string intimoString)
                                 {
-                                    label.Text = intimoProperty.Name + ": " + intimoString;
+                                    label.Text = nomeProprieta + ": " + intimoString;
                                 }
                                 else if (intimoPropertyValue is int intimoInt)
                                 {
-                                    label.Text = intimoProperty.Name + ": " + intimoInt.ToString();
+                                    label.Text = nomeProprieta + ": " + intimoInt.ToString();
                                 }
 
                                 // Creo lo stacklayout che lo contiene
@@ -397,11 +405,6 @@ namespace Pack__n__Go
                 VerticalOptions = LayoutOptions.Center,
                 //InputTransparent = true // Diventa non più cliccabile
             };
-        }
-
-        private void BeatifyNomiProprieta()
-        {
-
         }
 
         private void BackClicked(object sender, EventArgs e)
