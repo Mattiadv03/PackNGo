@@ -9,7 +9,24 @@
             // Dato che l'utente NON ha ancora scelto una durata disattivo gli imagebutton
             hotImage.IsEnabled = false;
             coldImage.IsEnabled = false;
+
+            
+            SizeChanged += OnPageSizeChanged;
         }
+
+        private void OnPageSizeChanged(object sender, EventArgs e)
+        {
+            SetSliderWidth();
+        }
+
+        private void SetSliderWidth()
+        {
+            var displayInfo = DeviceDisplay.MainDisplayInfo;
+            double widthSchermo = displayInfo.Width;
+            double widthSlider = widthSchermo * 0.2; // Impostiamo la larghezza al 80% dello schermo
+            slider.WidthRequest = widthSlider;
+        }
+
         void OnSliderValueChanged(object sender, ValueChangedEventArgs args)
         {
             // Prendo il valore dello slider
