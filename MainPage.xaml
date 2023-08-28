@@ -10,7 +10,12 @@
         <VerticalStackLayout Spacing="25" Padding="0" VerticalOptions="Center">
             <Label Text="Pack 'n' Go" x:Name="titolo" FontSize="36" FontAttributes="Bold" HorizontalTextAlignment="Center" />
 
-            <Label Text="Scegli la stagione:" x:Name="sottotitolo" FontSize="24" HorizontalTextAlignment="Center" />
+            <Label Text="Scegli la durata:" FontSize="24" HorizontalTextAlignment="Center" />
+
+            <Slider Minimum="1" Maximum="60" ValueChanged="OnSliderValueChanged" />
+            <Label x:Name="displayLabel" Text="(uninitialized)" HorizontalOptions="Center" VerticalOptions="Center" />
+
+            <Label Text="Scegli la stagione:" FontSize="24" HorizontalTextAlignment="Center" />
 
             <StackLayout HorizontalOptions="Center" Orientation="Horizontal" >
                 <!-- Estate -->
