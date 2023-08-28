@@ -11,7 +11,7 @@
             coldImage.IsEnabled = false;
 
             
-            SizeChanged += OnPageSizeChanged;
+            //SizeChanged += OnPageSizeChanged;
         }
 
         private void OnPageSizeChanged(object sender, EventArgs e)
@@ -33,7 +33,7 @@
             double value = Convert.ToInt32(args.NewValue);
 
             // Lo mostro nel layout
-            displayLabel.Text = String.Format("La vacanza durerà {0} {1}", value, "giorni");
+            durataLabel.Text = String.Format("La vacanza durerà {0} {1}", value, "giorni");
 
             // Dato che l'utente ha scelto una durata attivo gli imagebutton
             hotImage.IsEnabled = true;
@@ -42,12 +42,12 @@
 
         private void HotImageClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Categoria("estate", Convert.ToInt32(displayLabel.Text)));
+            Navigation.PushAsync(new Categoria("estate", Convert.ToInt32(durataLabel.Text)));
         }
 
         private void ColdImageClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Categoria("inverno", Convert.ToInt32(displayLabel.Text)));
+            Navigation.PushAsync(new Categoria("inverno", Convert.ToInt32(durataLabel.Text)));
         }
     }
 }

@@ -13,26 +13,24 @@
             <Label Text="Scegli la durata:" FontSize="20" HorizontalTextAlignment="Center" />
 
             <Slider x:Name="slider" Minimum="1"  Maximum="30" ValueChanged="OnSliderValueChanged" ThumbColor="#BB86FC" MinimumTrackColor="#BB86FC" />
-            <Label x:Name="displayLabel" Text="Ancora da definire" HorizontalOptions="Center" VerticalOptions="Center" TextColor="#BB86FC" />
+            <Label x:Name="durataLabel" Text="Ancora da definire" HorizontalOptions="Center" VerticalOptions="Center" TextColor="#BB86FC" />
 
             <Label Text="Scegli la stagione:" FontSize="20" HorizontalTextAlignment="Center" />
 
             <FlexLayout JustifyContent="Center" Wrap="Wrap" >
                 <!-- Estate -->
-                <StackLayout Padding="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                     <ImageButton Source="hot.png" x:Name="hotImage" Clicked="HotImageClicked" MaximumWidthRequest="150" Aspect="AspectFit" Margin="10" BackgroundColor="#121212" />
-                    <Label Text="Estate" FontSize="18" HorizontalTextAlignment="Center" />
+                    <Label Text="Estate" FontSize="16" HorizontalTextAlignment="Center" />
                 </StackLayout>
 
                 <!-- Inverno -->
-                <StackLayout Padding="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                     <ImageButton Source="cold.png" x:Name="coldImage" Clicked="ColdImageClicked" MaximumWidthRequest="150" Aspect="AspectFit" Margin="10" BackgroundColor="#121212" />
-                    <Label Text="Inverno" FontSize="18" HorizontalTextAlignment="Center" />
+                    <Label Text="Inverno" FontSize="16" HorizontalTextAlignment="Center" />
                 </StackLayout>
             </FlexLayout>
-            
+
         </VerticalStackLayout>
     </ScrollView>
-
-
 </ContentPage>
