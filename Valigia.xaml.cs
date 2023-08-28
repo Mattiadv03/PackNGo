@@ -13,6 +13,11 @@ namespace Pack__n__Go
         // Lista di checkbox true
         List<string> checkboxTrue;
 
+        // Stacklayout
+        StackLayout stackLayoutSezione;
+        StackLayout stackLayoutBase;
+
+
         public Valigia(string stagione, string categoria, string categoriaMaiuscola, string nomeFileJSON, List<string> checkboxTrue)
         {
             InitializeComponent();
@@ -83,9 +88,33 @@ namespace Pack__n__Go
 
                     foreach (PropertyInfo property in properties)
                     {
+                        // Creo il titolo di questa sezione
+                        Label labelTitolo = new Label
+                        {
+                            Text = property.Name,
+                            TextColor = Color.FromHex("#BB86FC"),
+                            FontSize = 30,
+                            HorizontalTextAlignment = TextAlignment.Center
+                        };
+
+                        // Creo lo stacklayout che conterrà tutta la sezione
+                        stackLayoutSezione = new StackLayout
+                        {
+                            Padding = new Thickness(0),
+                            HorizontalOptions = LayoutOptions.Center,
+                            VerticalOptions = LayoutOptions.Center
+                        };
+
+                        // Aggiungo il titolo della sezione
+                        stackLayoutBase = this.FindByName<StackLayout>("stackLayoutListaOggetti");
+                        stackLayoutBase.Children.Add(labelTitolo);
+
+                        stackLayoutSezione.Children.Add(labelTitolo);
+
                         // Prendo i dati in base alla proprietà
                         object value = property.GetValue(datiDefault);
 
+                        // Skippo se c'è un oggetto senza valori assegnati
                         if (value == null)
                         {
                             continue;
@@ -95,21 +124,32 @@ namespace Pack__n__Go
 
                         foreach (PropertyInfo intimoProperty in intimoProperties)
                         {
+                            // Popolo la sezione con le checkbox
                             object intimoPropertyValue = intimoProperty.GetValue(value);
 
                             // Controllo se è un array o un oggetto
                             if (intimoPropertyValue is string || intimoPropertyValue is int)
                             {
-                                // NON è ne array ne oggetto
+                                    // E' una stringa o un intero
                                 // Creo una checkbox
-                                CheckBox checkBox = new CheckBox
-                                {
-                                    IsChecked = false,
-                                    Color = Color.FromHex("#BB86FC")
-                                };
+                                CheckBox checkBox = GeneraCheckbox();
 
                                 // Crea una label
-                                Label label = new Label { };
+                                Label label = new Label
+                                {
+                                    VerticalTextAlignment = TextAlignment.Center,
+                                    HorizontalOptions = LayoutOptions.StartAndExpand,
+                                    GestureRecognizers =
+                                    {
+                                        new TapGestureRecognizer
+                                        {
+                                            Command = new Command(() =>
+                                            {
+                                                checkBox.IsChecked = !checkBox.IsChecked;
+                                            })
+                                        }
+                                    }
+                                };
 
                                 if (intimoPropertyValue is string intimoString)
                                 {
@@ -120,126 +160,61 @@ namespace Pack__n__Go
                                     label.Text = intimoProperty.Name + ": " + intimoInt.ToString();
                                 }
 
-                                // StackLayout padre per ogni gruppo checkbox + label
-                                StackLayout stackLayoutPadre = new StackLayout
+                                // Creo lo stacklayout che lo contiene
+                                StackLayout stackLayoutCheckbox = new StackLayout
                                 {
-                                    Padding = new Thickness(0),
-                                    HorizontalOptions = LayoutOptions.Start,
-                                    VerticalOptions = LayoutOptions.Center,
                                     Orientation = StackOrientation.Horizontal
                                 };
 
-                                stackLayoutPadre.Children.Add(checkBox);
-                                stackLayoutPadre.Children.Add(label);
+                                // StackLayout padre per ogni gruppo checkbox + label
+                                stackLayoutCheckbox.Children.Add(checkBox);
+                                stackLayoutCheckbox.Children.Add(label);
 
                                 // Aggiungi la checkbox e la label al layout
-                                StackLayout stackLayout = this.FindByName<StackLayout>("stackLayoutListaOggetti");
-                                stackLayout.Children.Add(stackLayoutPadre);
+                                stackLayoutBase = this.FindByName<StackLayout>("stackLayoutListaOggetti");
+                                stackLayoutBase.Children.Add(stackLayoutCheckbox);
                             }
                             else if (intimoPropertyValue is IList<string> intimoStringList)
                             {
-                                // E' un array
+                                    // E' un array
                                 foreach (string intimoListValue in intimoStringList)
                                 {
                                     // Creo una checkbox
-                                    CheckBox checkBox = new CheckBox
-                                    {
-                                        IsChecked = false,
-                                        Color = Color.FromHex("#BB86FC")
-                                    };
+                                    CheckBox checkBox = GeneraCheckbox();
 
                                     // Crea una label
-                                    Label label = new Label { };
-
-                                    label.Text = intimoProperty.Name + ": " + intimoListValue;
-
-                                    // StackLayout padre per ogni gruppo checkbox + label
-                                    StackLayout stackLayoutPadre = new StackLayout
+                                    Label label = new Label 
                                     {
-                                        Padding = new Thickness(0),
-                                        HorizontalOptions = LayoutOptions.Start,
-                                        VerticalOptions = LayoutOptions.Center,
+                                        Text = intimoListValue,
+                                        VerticalTextAlignment = TextAlignment.Center,
+                                        HorizontalOptions = LayoutOptions.StartAndExpand,
+                                        GestureRecognizers =
+                                        {
+                                            new TapGestureRecognizer
+                                            {
+                                                Command = new Command(() =>
+                                                {
+                                                    checkBox.IsChecked = !checkBox.IsChecked;
+                                                })
+                                            }
+                                        }
+                                    };
+
+                                    // Creo lo stacklayout che lo contiene
+                                    StackLayout stackLayoutCheckbox = new StackLayout
+                                    {
                                         Orientation = StackOrientation.Horizontal
                                     };
 
-                                    stackLayoutPadre.Children.Add(checkBox);
-                                    stackLayoutPadre.Children.Add(label);
+                                    // StackLayout padre per ogni gruppo checkbox + label
+                                    stackLayoutCheckbox.Children.Add(checkBox);
+                                    stackLayoutCheckbox.Children.Add(label);
 
                                     // Aggiungi la checkbox e la label al layout
-                                    StackLayout stackLayout = this.FindByName<StackLayout>("stackLayoutListaOggetti");
-                                    stackLayout.Children.Add(stackLayoutPadre);
+                                    stackLayoutBase = this.FindByName<StackLayout>("stackLayoutListaOggetti");
+                                    stackLayoutBase.Children.Add(stackLayoutCheckbox);
                                 }
                             }
-                            /*else if (intimoPropertyValue is IDictionary<string, string> dictionaryString)
-                            {
-                                    // E' un oggetto stringa:stringa
-                                // Scorro tutto il dictionary
-                                foreach (KeyValuePair<string, string> kvp in dictionaryString)
-                                {
-                                    // Creo una checkbox
-                                    CheckBox checkBox = new CheckBox
-                                    {
-                                        IsChecked = false,
-                                        Color = Color.FromHex("#BB86FC")
-                                    };
-
-                                    // Crea una label
-                                    Label label = new Label { };
-
-                                    label.Text = kvp.Key + ": " + kvp.Value;
-
-                                    // StackLayout padre per ogni gruppo checkbox + label
-                                    StackLayout stackLayoutPadre = new StackLayout
-                                    {
-                                        Padding = new Thickness(0),
-                                        HorizontalOptions = LayoutOptions.Start,
-                                        VerticalOptions = LayoutOptions.Center,
-                                        Orientation = StackOrientation.Horizontal
-                                    };
-
-                                    stackLayoutPadre.Children.Add(checkBox);
-                                    stackLayoutPadre.Children.Add(label);
-
-                                    // Aggiungi la checkbox e la label al layout
-                                    StackLayout stackLayout = this.FindByName<StackLayout>("stackLayoutListaOggetti");
-                                    stackLayout.Children.Add(stackLayoutPadre);
-                                }
-                            }
-                            else if (intimoPropertyValue is IDictionary<string, int> dictionaryInt)
-                            {
-                                    // E' un oggetto stringa:int
-                                // Scorro tutto il dictionary
-                                foreach (KeyValuePair<string, int> kvp in dictionaryInt)
-                                {
-                                    // Creo una checkbox
-                                    CheckBox checkBox = new CheckBox
-                                    {
-                                        IsChecked = false,
-                                        Color = Color.FromHex("#BB86FC")
-                                    };
-
-                                    // Crea una label
-                                    Label label = new Label { };
-
-                                    label.Text = kvp.Key + ": " + kvp.Value;
-
-                                    // StackLayout padre per ogni gruppo checkbox + label
-                                    StackLayout stackLayoutPadre = new StackLayout
-                                    {
-                                        Padding = new Thickness(0),
-                                        HorizontalOptions = LayoutOptions.Start,
-                                        VerticalOptions = LayoutOptions.Center,
-                                        Orientation = StackOrientation.Horizontal
-                                    };
-
-                                    stackLayoutPadre.Children.Add(checkBox);
-                                    stackLayoutPadre.Children.Add(label);
-
-                                    // Aggiungi la checkbox e la label al layout
-                                    StackLayout stackLayout = this.FindByName<StackLayout>("stackLayoutListaOggetti");
-                                    stackLayout.Children.Add(stackLayoutPadre);
-                                }
-                            }*/
                         }
                     }
                 }
@@ -268,8 +243,7 @@ namespace Pack__n__Go
                         {
                             Padding = new Thickness(0),
                             HorizontalOptions = LayoutOptions.Start,
-                            VerticalOptions = LayoutOptions.Center,
-                            Orientation = StackOrientation.Horizontal
+                            VerticalOptions = LayoutOptions.Center
                         };
 
                         stackLayoutPadre.Children.Add(checkBox);
@@ -414,6 +388,26 @@ namespace Pack__n__Go
             }
         }
 
+        /*// Gestione checkbox
+        private bool isChecked;
+        public bool IsChecked
+        {
+            get => isChecked;
+            set => SetProperty(ref isChecked, value);
+        }
+
+        SomeThingTappedCommand = new Command(() => IsChecked = !IsChecked);*/
+
+        private CheckBox GeneraCheckbox()
+        {
+            return new CheckBox
+            {
+                IsChecked = false,
+                Color = Color.FromHex("#BB86FC"),
+                VerticalOptions = LayoutOptions.Center,
+                //InputTransparent = true // Diventa non più cliccabile
+            };
+        }
 
         private void BackClicked(object sender, EventArgs e)
         {
