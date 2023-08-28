@@ -1,0 +1,11 @@
+{
+    "Magliette": "numeroDiGiorni * 1",
+    "Pantaloni lunghi": "numeroDiGiorni / 3",
+    "Cintura": 1,
+    "Felpe": "numeroDiGiorni / 2",
+    "Kway": 1,
+    "Mutande": "numeroDiGiorni + 1",
+    "Calze": "numeroDiGiorni",
+    "Pigiama": ["Maglietta", "Canutiera", "Pantaloni"],
+    "Borsetta roba onta": 1
+}
