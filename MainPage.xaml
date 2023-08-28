@@ -8,7 +8,11 @@
 
     <ScrollView>
         <VerticalStackLayout Spacing="25" Padding="0" VerticalOptions="Center">
-            <Label Text="Pack 'n' Go" x:Name="titolo" FontSize="36" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+            <Label Text="Pack 'n' Go" FontSize="36" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+
+            <Label Text="Inserisci il nome della vacanza:" FontSize="20" HorizontalTextAlignment="Center" />
+
+            <Entry x:Name="nomeVacanzaEntry" BackgroundColor="#121212"  />
 
             <Label Text="Scegli la durata:" FontSize="20" HorizontalTextAlignment="Center" />
 

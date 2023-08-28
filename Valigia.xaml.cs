@@ -6,6 +6,8 @@ namespace Pack__n__Go
     public partial class Valigia : ContentPage
     {
         string stagione;
+        string nomeVacanza;
+        int durata;
         string categoria;
         string categoriaMaiuscola;
         string nomeFileJSON;
@@ -18,11 +20,13 @@ namespace Pack__n__Go
         StackLayout stackLayoutBase;
 
 
-        public Valigia(string stagione, string categoria, string categoriaMaiuscola, string nomeFileJSON, List<string> checkboxTrue)
+        public Valigia(string stagione, string nomeVacanza, int durata, string categoria, string categoriaMaiuscola, string nomeFileJSON, List<string> checkboxTrue)
         {
             InitializeComponent();
 
             this.stagione = stagione;
+            this.nomeVacanza = nomeVacanza;
+            this.durata = durata;
             this.categoria = categoria;
             this.categoriaMaiuscola = categoriaMaiuscola;
             this.nomeFileJSON = nomeFileJSON;

@@ -3,34 +3,36 @@
     public partial class Categoria : ContentPage
     {
         string stagione;
+        string nomeVacanza;
         int durata;
 
-        public Categoria(string stagione, int durata)
+        public Categoria(string stagione, string nomeVacanza, int durata)
         {
             InitializeComponent();
 
             this.stagione = stagione;
+            this.nomeVacanza = nomeVacanza;
             this.durata = durata;
         }
 
         private void MareImageClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Optionals(stagione, durata, "mare"));
+            Navigation.PushAsync(new Optionals(stagione, nomeVacanza, durata, "mare"));
         }
         
         private void MontagnaImageClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Optionals(stagione, durata, "montagna"));
+            Navigation.PushAsync(new Optionals(stagione, nomeVacanza, durata, "montagna"));
         }
         
         private void LagoImageClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Optionals(stagione, durata, "lago"));
+            Navigation.PushAsync(new Optionals(stagione, nomeVacanza, durata, "lago"));
         }
         
         private void VisitaImageClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Optionals(stagione, durata, "visitaCitta"));
+            Navigation.PushAsync(new Optionals(stagione, nomeVacanza, durata, "visitaCitta"));
         }
 
         private void BackClicked(object sender, EventArgs e)

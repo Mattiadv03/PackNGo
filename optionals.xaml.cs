@@ -5,6 +5,7 @@ namespace Pack__n__Go
     public partial class Optionals : ContentPage
     {
         string stagione;
+        string nomeVacanza;
         int durata;
         string categoria;
         string categoriaMaiuscola;
@@ -16,11 +17,12 @@ namespace Pack__n__Go
         // Lista di checkbox true
         List<string> checkboxTrue;
 
-        public Optionals(string stagione, int durata, string categoria)
+        public Optionals(string stagione, string nomeVacanza, int durata, string categoria)
         {
             InitializeComponent();
 
             this.stagione = stagione;
+            this.nomeVacanza = nomeVacanza;
             this.durata = durata;
             this.categoria = categoria;
 
@@ -168,7 +170,7 @@ namespace Pack__n__Go
             }
 
             // Mando alla pagina di generazione della valigia
-            Navigation.PushAsync(new Valigia(stagione, categoria, categoriaMaiuscola, nomeFileJSON, checkboxTrue));
+            Navigation.PushAsync(new Valigia(stagione, nomeVacanza, durata, categoria, categoriaMaiuscola, nomeFileJSON, checkboxTrue));
         }
 
         private void BackClicked(object sender, EventArgs e)
