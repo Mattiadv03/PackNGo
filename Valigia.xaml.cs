@@ -127,6 +127,13 @@ namespace Pack__n__Go
                             // Popolo la sezione con le checkbox
                             object intimoPropertyValue = intimoProperty.GetValue(value);
 
+                            // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
+                            string nomeProprieta = intimoProperty.Name;
+                            if (intimoProperty.GetCustomAttribute<JsonPropertyAttribute>() != null)
+                            {
+                                nomeProprieta = intimoProperty.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
+                            }
+
                             // Controllo se è un array o un oggetto
                             if (intimoPropertyValue is string || intimoPropertyValue is int)
                             {
@@ -150,14 +157,6 @@ namespace Pack__n__Go
                                         }
                                     }
                                 };
-
-                                string nomeProprieta = intimoProperty.Name;
-
-                                // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
-                                if (intimoProperty.GetCustomAttribute<JsonPropertyAttribute>() != null)
-                                {
-                                    nomeProprieta = intimoProperty.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
-                                }
 
                                 if (intimoPropertyValue is string intimoString)
                                 {
