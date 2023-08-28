@@ -1,9 +1,5 @@
 {
     "Vestiti estate montagna": {
-        "Magliette tecniche": "numeroDiGiorni * 1",
-        "Canutiere tecniche": "numeroDiGiorni * 1",
-        "Pantaloni tecnici": "numeroDiGiorni / 3",
-
         "Magliette normali": "numeroDiGiorni / 2",
         "Pantaloni corti normali": "numeroDiGiorni / 3",
         "Felpe": "numeroDiGiorni / 4",
