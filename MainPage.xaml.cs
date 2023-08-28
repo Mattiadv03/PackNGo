@@ -11,7 +11,7 @@
             coldImage.IsEnabled = false;
 
             
-            //SizeChanged += OnPageSizeChanged;
+            SizeChanged += OnPageSizeChanged;
         }
 
         private void OnPageSizeChanged(object sender, EventArgs e)
