@@ -1,5 +1,8 @@
 {
     "Intimo": {
-        "Calze": "numeroDiGiorni"
+        "Mutande": "numeroDiGiorni + 1",
+        "Calze": "numeroDiGiorni",
+        "Pigiama": [ "Maglietta", "Pantaloni" ],
+        "Borsetta roba onta": 1
     }
 }
