@@ -58,8 +58,8 @@ namespace Pack__n__Go
         private async Task JsonToCheckBox(string nomeFile)
         {
             // Leggo da Github il file
-            //string path = "https://raw.githubusercontent.com/Mattiadv03/PackNGo/master/Resources/JSON/" + nomeFile;
-            string path = "https://raw.githubusercontent.com/Mattiadv03/PackNGo/master/Resources/JSON/temp/string.json";
+            string path = "https://raw.githubusercontent.com/Mattiadv03/PackNGo/master/Resources/JSON/" + nomeFile;
+            //string path = "https://raw.githubusercontent.com/Mattiadv03/PackNGo/master/Resources/JSON/temp/string.json";
 
             // Creo un'istanza di HttpClient
             HttpClient client = new HttpClient();
@@ -74,73 +74,175 @@ namespace Pack__n__Go
                 string data = await response.Content.ReadAsStringAsync();
 
                 // Deserializzo il JSON
-                if(nomeFile == "default.json")
+                if (nomeFile == "default.json")
                 {
                     Default datiDefault = JsonConvert.DeserializeObject<Default>(data);
 
-                    // Prendo tutte gli oggetti nel file
-                    foreach(PropertyInfo proprieta in datiDefault.GetType().GetProperties())
+                    // Salvo le proprietà lette
+                    PropertyInfo[] properties = datiDefault.GetType().GetProperties();
+
+                    foreach (PropertyInfo property in properties)
                     {
-                        object categoryValue = proprieta.GetValue(datiDefault);
+                        // Prendo i dati in base alla proprietà
+                        object value = property.GetValue(datiDefault);
 
-                        
-
-                        // Leggo gli oggetti contenuti in proprietà
-                        if (categoryValue is string stringValue)
+                        if (value == null)
                         {
-                            Console.WriteLine($"{proprieta.Name}: {stringValue}");
+                            continue;
+                        }
+
+                        PropertyInfo[] intimoProperties = value.GetType().GetProperties();
+
+                        foreach (PropertyInfo intimoProperty in intimoProperties)
+                        {
+                            object intimoPropertyValue = intimoProperty.GetValue(value);
+
+                            // Controllo se è un array o un oggetto
+                            if (intimoPropertyValue is string || intimoPropertyValue is int)
+                            {
+                                // NON è ne array ne oggetto
+                                // Creo una checkbox
+                                CheckBox checkBox = new CheckBox
+                                {
+                                    IsChecked = false,
+                                    Color = Color.FromHex("#BB86FC")
+                                };
+
+                                // Crea una label
+                                Label label = new Label { };
+
+                                if (intimoPropertyValue is string intimoString)
+                                {
+                                    label.Text = intimoProperty.Name + ": " + intimoString;
+                                }
+                                else if (intimoPropertyValue is int intimoInt)
+                                {
+                                    label.Text = intimoProperty.Name + ": " + intimoInt.ToString();
+                                }
+
+                                // StackLayout padre per ogni gruppo checkbox + label
+                                StackLayout stackLayoutPadre = new StackLayout
+                                {
+                                    Padding = new Thickness(0),
+                                    HorizontalOptions = LayoutOptions.Start,
+                                    VerticalOptions = LayoutOptions.Center,
+                                    Orientation = StackOrientation.Horizontal
+                                };
+
+                                stackLayoutPadre.Children.Add(checkBox);
+                                stackLayoutPadre.Children.Add(label);
+
+                                // Aggiungi la checkbox e la label al layout
+                                StackLayout stackLayout = this.FindByName<StackLayout>("stackLayoutListaOggetti");
+                                stackLayout.Children.Add(stackLayoutPadre);
+                            }
+                            else if (intimoPropertyValue is IList<string> intimoStringList)
+                            {
+                                // E' un array
+                                foreach (string intimoListValue in intimoStringList)
+                                {
+                                    // Creo una checkbox
+                                    CheckBox checkBox = new CheckBox
+                                    {
+                                        IsChecked = false,
+                                        Color = Color.FromHex("#BB86FC")
+                                    };
+
+                                    // Crea una label
+                                    Label label = new Label { };
+
+                                    label.Text = intimoProperty.Name + ": " + intimoListValue;
+
+                                    // StackLayout padre per ogni gruppo checkbox + label
+                                    StackLayout stackLayoutPadre = new StackLayout
+                                    {
+                                        Padding = new Thickness(0),
+                                        HorizontalOptions = LayoutOptions.Start,
+                                        VerticalOptions = LayoutOptions.Center,
+                                        Orientation = StackOrientation.Horizontal
+                                    };
+
+                                    stackLayoutPadre.Children.Add(checkBox);
+                                    stackLayoutPadre.Children.Add(label);
+
+                                    // Aggiungi la checkbox e la label al layout
+                                    StackLayout stackLayout = this.FindByName<StackLayout>("stackLayoutListaOggetti");
+                                    stackLayout.Children.Add(stackLayoutPadre);
+                                }
+                            }
+                            /*else if (intimoPropertyValue is IDictionary<string, string> dictionaryString)
+                            {
+                                    // E' un oggetto stringa:stringa
+                                // Scorro tutto il dictionary
+                                foreach (KeyValuePair<string, string> kvp in dictionaryString)
+                                {
+                                    // Creo una checkbox
+                                    CheckBox checkBox = new CheckBox
+                                    {
+                                        IsChecked = false,
+                                        Color = Color.FromHex("#BB86FC")
+                                    };
+
+                                    // Crea una label
+                                    Label label = new Label { };
+
+                                    label.Text = kvp.Key + ": " + kvp.Value;
+
+                                    // StackLayout padre per ogni gruppo checkbox + label
+                                    StackLayout stackLayoutPadre = new StackLayout
+                                    {
+                                        Padding = new Thickness(0),
+                                        HorizontalOptions = LayoutOptions.Start,
+                                        VerticalOptions = LayoutOptions.Center,
+                                        Orientation = StackOrientation.Horizontal
+                                    };
+
+                                    stackLayoutPadre.Children.Add(checkBox);
+                                    stackLayoutPadre.Children.Add(label);
+
+                                    // Aggiungi la checkbox e la label al layout
+                                    StackLayout stackLayout = this.FindByName<StackLayout>("stackLayoutListaOggetti");
+                                    stackLayout.Children.Add(stackLayoutPadre);
+                                }
+                            }
+                            else if (intimoPropertyValue is IDictionary<string, int> dictionaryInt)
+                            {
+                                    // E' un oggetto stringa:int
+                                // Scorro tutto il dictionary
+                                foreach (KeyValuePair<string, int> kvp in dictionaryInt)
+                                {
+                                    // Creo una checkbox
+                                    CheckBox checkBox = new CheckBox
+                                    {
+                                        IsChecked = false,
+                                        Color = Color.FromHex("#BB86FC")
+                                    };
+
+                                    // Crea una label
+                                    Label label = new Label { };
+
+                                    label.Text = kvp.Key + ": " + kvp.Value;
+
+                                    // StackLayout padre per ogni gruppo checkbox + label
+                                    StackLayout stackLayoutPadre = new StackLayout
+                                    {
+                                        Padding = new Thickness(0),
+                                        HorizontalOptions = LayoutOptions.Start,
+                                        VerticalOptions = LayoutOptions.Center,
+                                        Orientation = StackOrientation.Horizontal
+                                    };
+
+                                    stackLayoutPadre.Children.Add(checkBox);
+                                    stackLayoutPadre.Children.Add(label);
+
+                                    // Aggiungi la checkbox e la label al layout
+                                    StackLayout stackLayout = this.FindByName<StackLayout>("stackLayoutListaOggetti");
+                                    stackLayout.Children.Add(stackLayoutPadre);
+                                }
+                            }*/
                         }
                     }
-
-                    /*// Itera sull'oggetto JSON
-                    foreach (var proprietà in datiDefault.GetType().GetProperties())
-                    {
-                        // Itera sull'array e stampa il valore di ogni elemento
-                        foreach (string elemento in proprietà.GetValue(datiDefault))
-                        {
-                            Console.WriteLine("Elemento: {0}", elemento);
-                        }
-                    }*/
-
-                    // Creo le checkbox per ogni categoria
-                    foreach (var proprieta in datiDefault.GetType().GetProperties())
-                    {
-
-                        /*foreach (string elemento in proprieta)
-                        {
-                            Console.WriteLine("Elemento: {0}", elemento);
-                        }*/
-
-                        // Crea una checkbox
-                        CheckBox checkBox = new CheckBox
-                        {
-                            IsChecked = false,
-                            Color = Color.FromHex("#BB86FC")
-                        };
-
-                        // Crea una label
-                        Label label = new Label
-                        {
-                            //Text = proprieta
-                        };
-
-                        // StackLayout padre per ogni gruppo checkbox + label
-                        StackLayout stackLayoutPadre = new StackLayout
-                        {
-                            Padding = new Thickness(0),
-                            HorizontalOptions = LayoutOptions.Start,
-                            VerticalOptions = LayoutOptions.Center,
-                            Orientation = StackOrientation.Horizontal
-                        };
-
-                        stackLayoutPadre.Children.Add(checkBox);
-                        stackLayoutPadre.Children.Add(label);
-
-                        // Aggiungi la checkbox e la label al layout
-                        StackLayout stackLayout = this.FindByName<StackLayout>("stackLayoutListaOggetti");
-                        stackLayout.Children.Add(stackLayoutPadre);
-                    }
-                }  
+                }
                 else if (nomeFile == "optionals.json")
                 {
                     Opzionali opzionali = JsonConvert.DeserializeObject<Opzionali>(data);
@@ -186,7 +288,7 @@ namespace Pack__n__Go
                     foreach (var proprietà in mare_lago.GetType().GetProperties())
                     {
                         // Filtro in base alla stagione
-                        if(stagione == "estate" && proprietà.Name == "Vestitiinverno")
+                        if (stagione == "estate" && proprietà.Name == "Vestitiinverno")
                         {
                             continue;
                         }
@@ -194,7 +296,7 @@ namespace Pack__n__Go
                         {
                             continue;
                         }
-                        else 
+                        else
                         {
                             // Crea una checkbox
                             CheckBox checkBox = new CheckBox
