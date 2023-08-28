@@ -16,9 +16,7 @@
 
             <Label Text="Ecco la lista di cosa mettere in valigia" x:Name="sottotitolo" FontSize="24" HorizontalTextAlignment="Center" />
 
-            <StackLayout HorizontalOptions="Center" x:Name="stackLayoutListaOggetti">
-
-            </StackLayout>
+            <StackLayout x:Name="stackLayoutListaOggetti"></StackLayout>
 
             <Button Text="Optionals errati" x:Name="backButton" Clicked="BackClicked"/>
             
