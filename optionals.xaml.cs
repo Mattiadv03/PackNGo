@@ -66,7 +66,7 @@ namespace Pack__n__Go
                     Opzionali opzionali = JsonConvert.DeserializeObject<Opzionali>(data);
 
                     // Creo le checkbox per ogni categoria
-                    foreach (var proprietà in opzionali.GetType().GetProperties())
+                    foreach (var proprieta in opzionali.GetType().GetProperties())
                     {
                         // Crea una checkbox
                         CheckBox checkBox = new CheckBox
@@ -77,12 +77,12 @@ namespace Pack__n__Go
 
                         // Aggiungo al dictionary
                         myCheckboxList = new Dictionary<string, CheckBox>();
-                        myCheckboxList.Add(proprietà.Name + "CheckBox", checkBox);
+                        myCheckboxList.Add(proprieta.Name + "CheckBox", checkBox);
 
                         // Crea una label
                         Label label = new Label
                         {
-                            Text = proprietà.Name
+                            Text = proprieta.Name
                         };
 
                         // StackLayout padre per ogni gruppo checkbox + label

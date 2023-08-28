@@ -223,7 +223,7 @@ namespace Pack__n__Go
                     Opzionali opzionali = JsonConvert.DeserializeObject<Opzionali>(data);
 
                     // Creo le checkbox per ogni categoria
-                    foreach (var proprietà in opzionali.GetType().GetProperties())
+                    foreach (var proprieta in opzionali.GetType().GetProperties())
                     {
                         // Crea una checkbox
                         CheckBox checkBox = new CheckBox
@@ -235,7 +235,7 @@ namespace Pack__n__Go
                         // Crea una label
                         Label label = new Label
                         {
-                            Text = proprietà.Name
+                            Text = proprieta.Name
                         };
 
                         // StackLayout padre per ogni gruppo checkbox + label
@@ -259,14 +259,14 @@ namespace Pack__n__Go
                     Mare_lago mare_lago = JsonConvert.DeserializeObject<Mare_lago>(data);
 
                     // Creo le checkbox per ogni categoria
-                    foreach (var proprietà in mare_lago.GetType().GetProperties())
+                    foreach (var proprieta in mare_lago.GetType().GetProperties())
                     {
                         // Filtro in base alla stagione
-                        if (stagione == "estate" && proprietà.Name == "Vestitiinverno")
+                        if (stagione == "estate" && proprieta.Name == "Vestitiinverno")
                         {
                             continue;
                         }
-                        else if (stagione == "inverno" && proprietà.Name == "Vestitiestate")
+                        else if (stagione == "inverno" && proprieta.Name == "Vestitiestate")
                         {
                             continue;
                         }
@@ -282,7 +282,7 @@ namespace Pack__n__Go
                             // Crea una label
                             Label label = new Label
                             {
-                                Text = proprietà.Name
+                                Text = proprieta.Name
                             };
 
                             // StackLayout padre per ogni gruppo checkbox + label
@@ -308,7 +308,7 @@ namespace Pack__n__Go
                     Montagna montagna = JsonConvert.DeserializeObject<Montagna>(data);
 
                     // Creo le checkbox per ogni categoria
-                    foreach (var proprietà in montagna.GetType().GetProperties())
+                    foreach (var proprieta in montagna.GetType().GetProperties())
                     {
                         // Crea una checkbox
                         CheckBox checkBox = new CheckBox
@@ -320,7 +320,7 @@ namespace Pack__n__Go
                         // Crea una label
                         Label label = new Label
                         {
-                            Text = proprietà.Name
+                            Text = proprieta.Name
                         };
 
                         // StackLayout padre per ogni gruppo checkbox + label
@@ -345,7 +345,7 @@ namespace Pack__n__Go
                     VisitaCitta visitaCitta = JsonConvert.DeserializeObject<VisitaCitta>(data);
 
                     // Creo le checkbox per ogni categoria
-                    foreach (var proprietà in visitaCitta.GetType().GetProperties())
+                    foreach (var proprieta in visitaCitta.GetType().GetProperties())
                     {
                         // Crea una checkbox
                         CheckBox checkBox = new CheckBox
@@ -357,7 +357,7 @@ namespace Pack__n__Go
                         // Crea una label
                         Label label = new Label
                         {
-                            Text = proprietà.Name
+                            Text = proprieta.Name
                         };
 
                         // StackLayout padre per ogni gruppo checkbox + label
@@ -397,6 +397,11 @@ namespace Pack__n__Go
                 VerticalOptions = LayoutOptions.Center,
                 //InputTransparent = true // Diventa non più cliccabile
             };
+        }
+
+        private void BeatifyNomiProprieta()
+        {
+
         }
 
         private void BackClicked(object sender, EventArgs e)
