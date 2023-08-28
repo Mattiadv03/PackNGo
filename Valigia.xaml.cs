@@ -388,16 +388,6 @@ namespace Pack__n__Go
             }
         }
 
-        /*// Gestione checkbox
-        private bool isChecked;
-        public bool IsChecked
-        {
-            get => isChecked;
-            set => SetProperty(ref isChecked, value);
-        }
-
-        SomeThingTappedCommand = new Command(() => IsChecked = !IsChecked);*/
-
         private CheckBox GeneraCheckbox()
         {
             return new CheckBox
