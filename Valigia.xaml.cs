@@ -46,7 +46,7 @@ namespace Pack__n__Go
                 // Genero la label con la categoria scelta
                 Label categoriaScelta = new Label
                 {
-                    Text = "Valigia " + categoriaMaiuscola,
+                    Text = "Valigia " + categoriaMaiuscola + " - " + nomeVacanza,
                     FontSize = 30,
                     FontAttributes = FontAttributes.Bold,
                     HorizontalTextAlignment = TextAlignment.Center
