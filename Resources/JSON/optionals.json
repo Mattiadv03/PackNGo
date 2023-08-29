@@ -52,8 +52,8 @@
         "Libro": 1
     },
 
-    "Campeggio fuori casa": {
-        "Campeggio": [ "Materassino", "Pompa materassino", "Sacco a pelo", "Cuscino gonfiabile" ]
+    "Campeggio": {
+        "Campeggio fuori casa": [ "Materassino", "Pompa materassino", "Sacco a pelo", "Cuscino gonfiabile" ]
     },
 
     "Pioggia": {
