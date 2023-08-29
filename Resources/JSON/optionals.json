@@ -52,7 +52,9 @@
         "Libro": 1
     },
 
-    "Campeggio": [ "Materassino", "Pompa materassino", "Sacco a pelo", "Cuscino gonfiabile" ],
+    "Campeggio": {
+        "Campeggio": [ "Materassino", "Pompa materassino", "Sacco a pelo", "Cuscino gonfiabile" ]
+    },
 
     "Pioggia": {
         "Kway": 1,
