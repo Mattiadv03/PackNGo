@@ -35,7 +35,7 @@ namespace Pack__n__Go
         public string Pantalonitecnici { get; set; }
     }
 
-    public class Campeggio
+    public class CampeggioFuoriCasa
     {
         public List<string> Campeggio { get; set; }
     }
@@ -138,7 +138,9 @@ namespace Pack__n__Go
         public Palestra Palestra { get; set; }
         public Neve Neve { get; set; }
         public Svago Svago { get; set; }
-        public Campeggio Campeggio { get; set; }
+
+        [JsonProperty("Campeggio fuori casa")]
+        public CampeggioFuoriCasa Campeggiofuoricasa { get; set; }
         public Pioggia Pioggia { get; set; }
     }
 }
