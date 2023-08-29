@@ -277,37 +277,7 @@ namespace Pack__n__Go
                 {
                     Opzionali opzionali = JsonConvert.DeserializeObject<Opzionali>(data);
 
-                    // Creo le checkbox per ogni categoria
-                    foreach (var proprieta in opzionali.GetType().GetProperties())
-                    {
-                        // Crea una checkbox
-                        CheckBox checkBox = new CheckBox
-                        {
-                            IsChecked = false,
-                            Color = Color.FromHex("#BB86FC")
-                        };
-
-                        // Crea una label
-                        Label label = new Label
-                        {
-                            Text = proprieta.Name
-                        };
-
-                        // StackLayout padre per ogni gruppo checkbox + label
-                        StackLayout stackLayoutPadre = new StackLayout
-                        {
-                            Padding = new Thickness(0),
-                            HorizontalOptions = LayoutOptions.Start,
-                            VerticalOptions = LayoutOptions.Center
-                        };
-
-                        stackLayoutPadre.Children.Add(checkBox);
-                        stackLayoutPadre.Children.Add(label);
-
-                        // Aggiungi la checkbox e la label al layout
-                        StackLayout stackLayout = this.FindByName<StackLayout>("stackLayoutListaOggetti");
-                        stackLayout.Children.Add(stackLayoutPadre);
-                    }
+                    
                 }
                 else if (nomeFile == "mare-lago.json")
                 {

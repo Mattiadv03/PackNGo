@@ -30,6 +30,8 @@ namespace Pack__n__Go
             categoriaMaiuscola = temp[0];
             nomeFileJSON = temp[1];
 
+            myCheckboxList = new Dictionary<string, CheckBox>();
+
             GeneraXaml(this.stagione, this.categoria);
         }
 
@@ -76,17 +78,29 @@ namespace Pack__n__Go
                         CheckBox checkBox = new CheckBox
                         {
                             IsChecked = false,
-                            Color = Color.FromHex("#BB86FC")
+                            Color = Color.FromHex("#BB86FC"),
+                            VerticalOptions = LayoutOptions.Center
                         };
 
                         // Aggiungo al dictionary
-                        myCheckboxList = new Dictionary<string, CheckBox>();
-                        myCheckboxList.Add(proprieta.Name + "CheckBox", checkBox);
+                        myCheckboxList.Add(proprieta.Name, checkBox);
 
                         // Crea una label
                         Label label = new Label
                         {
-                            Text = proprieta.Name
+                            Text = proprieta.Name,
+                            VerticalTextAlignment = TextAlignment.Center,
+                            HorizontalOptions = LayoutOptions.StartAndExpand,
+                            GestureRecognizers =
+                                    {
+                                        new TapGestureRecognizer
+                                        {
+                                            Command = new Command(() =>
+                                            {
+                                                checkBox.IsChecked = !checkBox.IsChecked;
+                                            })
+                                        }
+                                    }
                         };
 
                         // StackLayout padre per ogni gruppo checkbox + label
