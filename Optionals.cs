@@ -37,7 +37,8 @@ namespace Pack__n__Go
 
     public class Campeggio
     {
-        public List<string> Campeggiofuoricasa { get; set; }
+        [JsonProperty("Letto campeggio")]
+        public List<string> Lettocampeggio { get; set; }
     }
 
     public class CuraPersonale
@@ -123,7 +124,7 @@ namespace Pack__n__Go
         public int Libro { get; set; }
     }
 
-    public class Opzionali
+    public class Opzionale
     {
         [JsonProperty("Cura personale")]
         public CuraPersonale Curapersonale { get; set; }
@@ -138,8 +139,6 @@ namespace Pack__n__Go
         public Palestra Palestra { get; set; }
         public Neve Neve { get; set; }
         public Svago Svago { get; set; }
-
-        [JsonProperty("Campeggio")]
         public Campeggio Campeggio { get; set; }
         public Pioggia Pioggia { get; set; }
     }

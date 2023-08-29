@@ -53,7 +53,7 @@
     },
 
     "Campeggio": {
-        "Campeggio fuori casa": [ "Materassino", "Pompa materassino", "Sacco a pelo", "Cuscino gonfiabile" ]
+        "Letto campeggio": [ "Materassino", "Pompa materassino", "Sacco a pelo", "Cuscino gonfiabile" ]
     },
 
     "Pioggia": {
