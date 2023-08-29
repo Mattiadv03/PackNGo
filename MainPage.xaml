@@ -12,7 +12,7 @@
 
             <Label Text="Inserisci il nome della vacanza:" FontSize="20" HorizontalTextAlignment="Center" />
 
-            <Entry x:Name="nomeVacanzaEntry" BackgroundColor="#121212"  />
+            <Entry x:Name="nomeVacanzaEntry" BackgroundColor="#121212" />
 
             <Label Text="Scegli la durata:" FontSize="20" HorizontalTextAlignment="Center" />
 
