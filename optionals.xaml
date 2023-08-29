@@ -7,19 +7,15 @@
     <ScrollView>
         <VerticalStackLayout Spacing="25" Padding="0" VerticalOptions="Center">
 
-            <Label Text="Pack 'n' Go" x:Name="titolo" FontSize="36" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+            <Label Text="Pack 'n' Go" FontSize="36" FontAttributes="Bold" HorizontalTextAlignment="Center" />
 
             <StackLayout HorizontalOptions="Center" x:Name="dynamicCategoria">
                 <!-- Nome categoria impostato dinamicamente-->
             </StackLayout>
-            
 
-            <Label Text="Scegli, in base alle attività che devi svolgere, le cose da includere in valigia" x:Name="sottotitolo" FontSize="24" HorizontalTextAlignment="Center" />
+            <Label Text="Scegli, in base alle attività che devi svolgere, le cose da includere in valigia" FontSize="24" HorizontalTextAlignment="Center" />
 
-            <StackLayout HorizontalOptions="Center" Orientation="Vertical" x:Name="layoutCheckBox">
-                <!-- Creazione automatica con ciclo da c# -->
-                
-            </StackLayout>
+            <StackLayout x:Name="layoutCheckBox" HorizontalOptions="CenterAndExpand"></StackLayout>
 
             <Button Text="Genera valigia" x:Name="buttonGeneraValigia" Clicked="GeneraValigia"/>
 
