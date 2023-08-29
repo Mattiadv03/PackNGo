@@ -124,7 +124,7 @@ namespace Pack__n__Go
         public int Libro { get; set; }
     }
 
-    public class Opzionale
+    public class Opzionali
     {
         [JsonProperty("Cura personale")]
         public CuraPersonale Curapersonale { get; set; }
