@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace Pack__n__Go
 {
@@ -164,11 +165,54 @@ namespace Pack__n__Go
 
                                 if (intimoPropertyValue is string intimoString)
                                 {
-                                    label.Text = nomeProprieta + ": " + intimoString;
+                                    // Controllo se è un valore o un'espressione
+                                    string stringaLetta = intimoString;
+
+                                    if (Regex.IsMatch(stringaLetta, @"\b\w+\s*/\s*\d+"))
+                                    {
+                                        // Espressione con /
+                                        string[] parts = stringaLetta.Split('/');
+                                        int numero = Convert.ToInt32(parts[1].Trim()); // Parte a destra del /
+
+                                        // Calcolo numero di output in base alla durata
+                                        double calcolo = Convert.ToDouble(durata) / numero;
+                                        int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
+
+                                        label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                    }
+                                    else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\*\s*\d+"))
+                                    {
+                                        // Espressione con *
+                                        string[] parts = stringaLetta.Split('*');
+                                        int numero = Convert.ToInt32(parts[1].Trim()); // Parte a destra del *
+
+                                        // Calcolo numero di output in base alla durata
+                                        double calcolo = Convert.ToDouble(durata) * numero;
+                                        int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
+
+                                        label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                    }
+                                    else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\+\s*\d+"))
+                                    {
+                                        // Espressione con +
+                                        string[] parts = stringaLetta.Split('+');
+                                        int numero = Convert.ToInt32(parts[1].Trim()); // Parte a destra del +
+
+                                        // Calcolo numero di output in base alla durata
+                                        double calcolo = Convert.ToDouble(durata) + numero;
+                                        int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
+
+                                        label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                    }
+
+                                    else
+                                    {
+                                        label.Text = nomeProprieta + " ➞ " + intimoString;
+                                    }
                                 }
                                 else if (intimoPropertyValue is int intimoInt)
                                 {
-                                    label.Text = nomeProprieta + ": " + intimoInt.ToString();
+                                    label.Text = nomeProprieta + " ➞ " + intimoInt.ToString();
                                 }
 
                                 // Creo lo stacklayout che lo contiene
