@@ -11,7 +11,7 @@
 
             <Label Text="Scegli il tipo di vacanza" x:Name="sottotitolo" FontSize="24" HorizontalTextAlignment="Center" />
 
-            <StackLayout HorizontalOptions="Center" Orientation="Horizontal" >
+            <FlexLayout x:Name="layoutCheckBox" JustifyContent="Center" Wrap="Wrap">
                 <!-- Mare -->
                 <StackLayout Padding="0" HorizontalOptions="Center" VerticalOptions="Center" >
                     <ImageButton Source="mare.jpg" x:Name="mareImage" Clicked="MareImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
@@ -36,7 +36,7 @@
                     <Label Text="Visita" FontSize="18" HorizontalTextAlignment="Center" />
                 </StackLayout>
 
-            </StackLayout>
+            </FlexLayout>
 
             <Button Text="Stagione errata" x:Name="backButton" Clicked="BackClicked" TextColor="#121212" FontSize="16" BackgroundColor="#CF6679" />
 
