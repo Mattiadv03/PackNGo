@@ -13,6 +13,21 @@
             this.stagione = stagione;
             this.nomeVacanza = nomeVacanza;
             this.durata = durata;
+
+            SizeChanged += OnPageSizeChanged;
+        }
+
+        private void OnPageSizeChanged(object sender, EventArgs e)
+        {
+            SetBackWidth();
+        }
+
+        private void SetBackWidth()
+        {
+            var displayInfo = DeviceDisplay.MainDisplayInfo;
+            double widthSchermo = displayInfo.Width;
+            double widthEntry = widthSchermo * 0.2;
+            backButton.WidthRequest = widthEntry;
         }
 
         private void MareImageClicked(object sender, EventArgs e)

@@ -18,7 +18,7 @@
 
             <StackLayout x:Name="stackLayoutListaOggetti" HorizontalOptions="CenterAndExpand"></StackLayout>
 
-            <Button Text="Optionals errati" x:Name="backButton" Clicked="BackClicked"/>
+            <Button Text="Optionals errati" x:Name="backButton" Clicked="BackClicked" TextColor="#121212" FontSize="16" BackgroundColor="#CF6679"/>
 
         </VerticalStackLayout>
     </ScrollView>

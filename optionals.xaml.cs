@@ -32,7 +32,31 @@ namespace Pack__n__Go
 
             myCheckboxList = new Dictionary<string, CheckBox>();
 
+            SizeChanged += OnPageSizeChanged;
+
             GeneraXaml(this.stagione, this.categoria);
+        }
+
+        private void OnPageSizeChanged(object sender, EventArgs e)
+        {
+            SetGeneraWidth();
+            SetBackWidth();
+        }
+
+        private void SetGeneraWidth()
+        {
+            var displayInfo = DeviceDisplay.MainDisplayInfo;
+            double widthSchermo = displayInfo.Width;
+            double widthEntry = widthSchermo * 0.2;
+            buttonGeneraValigia.WidthRequest = widthEntry;
+        }
+        
+        private void SetBackWidth()
+        {
+            var displayInfo = DeviceDisplay.MainDisplayInfo;
+            double widthSchermo = displayInfo.Width;
+            double widthEntry = widthSchermo * 0.2;
+            backButton.WidthRequest = widthEntry;
         }
 
         private async Task GeneraXaml(string stagione, string categoria)

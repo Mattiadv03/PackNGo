@@ -17,9 +17,9 @@
 
             <StackLayout x:Name="layoutCheckBox" HorizontalOptions="CenterAndExpand"></StackLayout>
 
-            <Button Text="Genera valigia" x:Name="buttonGeneraValigia" Clicked="GeneraValigia"/>
+            <Button Text="Genera valigia" x:Name="buttonGeneraValigia" Clicked="GeneraValigia" TextColor="#121212" FontSize="16" BackgroundColor="#03DAC5"/>
 
-            <Button Text="Tipo di vacanza errato" x:Name="backButton" Clicked="BackClicked"/>
+            <Button Text="Tipo di vacanza errato" x:Name="backButton" Clicked="BackClicked" TextColor="#121212" FontSize="16" BackgroundColor="#CF6679"/>
 
         </VerticalStackLayout>
     </ScrollView>

@@ -33,7 +33,22 @@ namespace Pack__n__Go
             this.nomeFileJSON = nomeFileJSON;
             this.checkboxTrue = checkboxTrue;
 
+            SizeChanged += OnPageSizeChanged;
+
             GeneraXaml(categoriaMaiuscola, nomeFileJSON);
+        }
+
+        private void OnPageSizeChanged(object sender, EventArgs e)
+        {
+            SetBackWidth();
+        }
+
+        private void SetBackWidth()
+        {
+            var displayInfo = DeviceDisplay.MainDisplayInfo;
+            double widthSchermo = displayInfo.Width;
+            double widthEntry = widthSchermo * 0.2;
+            backButton.WidthRequest = widthEntry;
         }
 
         private async Task GeneraXaml(string categoriaMaiuscola, string nomeFileJSON)
@@ -709,7 +724,7 @@ namespace Pack__n__Go
 
                     foreach (PropertyInfo property in properties)
                     {
-                        // Facci in modo da dare una stagione sola
+                        // Faccio in modo da dare una stagione sola
                         if (stagione == "estate" && property.Name == "Vestitiinvernomontagna")
                         {
                             continue;
