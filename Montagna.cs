@@ -11,15 +11,6 @@ namespace Pack__n__Go
 
     public class VestitiEstateMontagna
     {
-        [JsonProperty("Magliette tecniche")]
-        public string Magliettetecniche { get; set; }
-
-        [JsonProperty("Canutiere tecniche")]
-        public string Canutieretecniche { get; set; }
-
-        [JsonProperty("Pantaloni tecnici")]
-        public string Pantalonitecnici { get; set; }
-
         [JsonProperty("Magliette normali")]
         public string Magliettenormali { get; set; }
 
@@ -55,11 +46,10 @@ namespace Pack__n__Go
 
     public class Montagna
     {
-        [JsonProperty("Vestiti estate")]
-        public VestitiEstateMontagna Vestitiestate { get; set; }
+        [JsonProperty("Vestiti estate montagna")]
+        public VestitiEstateMontagna Vestitiestatemontagna { get; set; }
 
-        [JsonProperty("Vestiti inverno")]
-        public VestitiInvernoMontagna Vestitiinverno { get; set; }
+        [JsonProperty("Vestiti inverno montagna")]
+        public VestitiInvernoMontagna Vestitiinvernomontagna { get; set; }
     }
-
 }
