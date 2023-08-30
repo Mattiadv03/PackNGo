@@ -121,7 +121,8 @@ namespace Pack__n__Go
                             Text = nomeProprieta,
                             TextColor = Color.FromHex("#BB86FC"),
                             FontSize = 30,
-                            HorizontalTextAlignment = TextAlignment.Center
+                            HorizontalTextAlignment = TextAlignment.Center,
+                            Margin = new Thickness(0, 30, 0, 0) // Applica un margine di 20 top
                         };
 
                         // Creo lo stacklayout che conterrà tutta la sezione
@@ -320,7 +321,8 @@ namespace Pack__n__Go
                                 Text = nomeProprieta,
                                 TextColor = Color.FromHex("#BB86FC"),
                                 FontSize = 30,
-                                HorizontalTextAlignment = TextAlignment.Center
+                                HorizontalTextAlignment = TextAlignment.Center,
+                                Margin = new Thickness(0, 30, 0, 0) // Applica un margine di 20 top
                             };
 
                             // Creo lo stacklayout che conterrà tutta la sezione
@@ -537,7 +539,8 @@ namespace Pack__n__Go
                                 Text = nomeProprieta,
                                 TextColor = Color.FromHex("#BB86FC"),
                                 FontSize = 30,
-                                HorizontalTextAlignment = TextAlignment.Center
+                                HorizontalTextAlignment = TextAlignment.Center,
+                                Margin = new Thickness(0, 30, 0, 0) // Applica un margine di 20 top
                             };
 
                             // Creo lo stacklayout che conterrà tutta la sezione
@@ -748,7 +751,8 @@ namespace Pack__n__Go
                                 Text = nomeProprieta,
                                 TextColor = Color.FromHex("#BB86FC"),
                                 FontSize = 30,
-                                HorizontalTextAlignment = TextAlignment.Center
+                                HorizontalTextAlignment = TextAlignment.Center,
+                                Margin = new Thickness(0, 30, 0, 0) // Applica un margine di 20 top
                             };
 
                             // Creo lo stacklayout che conterrà tutta la sezione
@@ -959,7 +963,8 @@ namespace Pack__n__Go
                                 Text = nomeProprieta,
                                 TextColor = Color.FromHex("#BB86FC"),
                                 FontSize = 30,
-                                HorizontalTextAlignment = TextAlignment.Center
+                                HorizontalTextAlignment = TextAlignment.Center,
+                                Margin = new Thickness(0, 30, 0, 0) // Applica un margine di 20 top
                             };
 
                             // Creo lo stacklayout che conterrà tutta la sezione

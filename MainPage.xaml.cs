@@ -26,7 +26,7 @@
         {
             var displayInfo = DeviceDisplay.MainDisplayInfo;
             double widthSchermo = displayInfo.Width;
-            double widthEntry = widthSchermo * 0.4;
+            double widthEntry = widthSchermo * 0.2;
             nomeVacanzaEntry.WidthRequest = widthEntry;
         }
         
