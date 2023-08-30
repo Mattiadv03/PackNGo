@@ -9,7 +9,7 @@ namespace Pack__n__Go
 {
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
 
-    public class VestitiEstateMare_lago
+    public class VestitiEstateMareLago
     {
         [JsonProperty("Magliette maniche lunghe")]
         public string Magliettemanichelunghe { get; set; }
@@ -22,7 +22,7 @@ namespace Pack__n__Go
         public int Felpe { get; set; }
     }
 
-    public class VestitiInvernoMare_lago
+    public class VestitiInvernoMareLago
     {
         [JsonProperty("Magliette maniche lunghe")]
         public string Magliettemanichelunghe { get; set; }
@@ -34,14 +34,13 @@ namespace Pack__n__Go
         public int Sciarpa { get; set; }
         public int Scaldacollo { get; set; }
     }
+
     public class Mare_lago
     {
-        [JsonProperty("Vestiti estate")]
-        public VestitiEstateMare_lago Vestitiestate { get; set; }
+        [JsonProperty("Vestiti estate mare-lago")]
+        public VestitiEstateMareLago Vestitiestatemarelago { get; set; }
 
-        [JsonProperty("Vestiti inverno")]
-        public VestitiInvernoMare_lago Vestitiinverno { get; set; }
+        [JsonProperty("Vestiti inverno mare-lago")]
+        public VestitiInvernoMareLago Vestitiinvernomarelago { get; set; }
     }
-
-
 }
