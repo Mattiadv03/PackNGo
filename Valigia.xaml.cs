@@ -759,22 +759,22 @@ namespace Pack__n__Go
                                 continue;
                             }
 
-                            PropertyInfo[] elementProperties = value.GetType().GetProperties();
+                            PropertyInfo[] elementoProperties = value.GetType().GetProperties();
 
-                            foreach (PropertyInfo elementProperty in elementProperties)
+                            foreach (PropertyInfo elementoProperty in elementoProperties)
                             {
                                 // Popolo la sezione con le checkbox
-                                object elementPropertiesValue = elementProperty.GetValue(value);
+                                object elementoPropertiesValue = elementoProperty.GetValue(value);
 
                                 // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
-                                nomeProprieta = elementProperty.Name;
-                                if (elementProperty.GetCustomAttribute<JsonPropertyAttribute>() != null)
+                                nomeProprieta = elementoProperty.Name;
+                                if (elementoProperty.GetCustomAttribute<JsonPropertyAttribute>() != null)
                                 {
-                                    nomeProprieta = elementProperty.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
+                                    nomeProprieta = elementoProperty.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
                                 }
 
                                 // Controllo se è un array o un oggetto
-                                if (elementPropertiesValue is string || elementPropertiesValue is int)
+                                if (elementoPropertiesValue is string || elementoPropertiesValue is int)
                                 {
                                     // E' una stringa o un intero
                                     // Creo una checkbox
@@ -797,7 +797,7 @@ namespace Pack__n__Go
                                     }
                                     };
 
-                                    if (elementPropertiesValue is string elementoString)
+                                    if (elementoPropertiesValue is string elementoString)
                                     {
                                         // Controllo se è un valore o un'espressione
                                         string stringaLetta = elementoString;
@@ -844,7 +844,7 @@ namespace Pack__n__Go
                                             label.Text = nomeProprieta + " ➞ " + elementoString;
                                         }
                                     }
-                                    else if (elementPropertiesValue is int elementoInt)
+                                    else if (elementoPropertiesValue is int elementoInt)
                                     {
                                         label.Text = nomeProprieta + " ➞ " + elementoInt.ToString();
                                     }
@@ -863,10 +863,10 @@ namespace Pack__n__Go
                                     stackLayoutBase = this.FindByName<StackLayout>("stackLayoutListaOggetti");
                                     stackLayoutBase.Children.Add(stackLayoutCheckbox);
                                 }
-                                else if (elementPropertiesValue is IList<string> intimoStringList)
+                                else if (elementoPropertiesValue is IList<string> elementoStringList)
                                 {
                                     // E' un array
-                                    foreach (string intimoListValue in intimoStringList)
+                                    foreach (string elementoListValue in elementoStringList)
                                     {
                                         // Creo una checkbox
                                         CheckBox checkBox = GeneraCheckbox();
@@ -874,7 +874,7 @@ namespace Pack__n__Go
                                         // Crea una label
                                         Label label = new Label
                                         {
-                                            Text = intimoListValue,
+                                            Text = elementoListValue,
                                             VerticalTextAlignment = TextAlignment.Center,
                                             HorizontalOptions = LayoutOptions.StartAndExpand,
                                             GestureRecognizers =
