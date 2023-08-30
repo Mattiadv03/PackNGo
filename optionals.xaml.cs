@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Reflection;
 
 namespace Pack__n__Go
 {
@@ -109,22 +110,29 @@ namespace Pack__n__Go
                         // Aggiungo al dictionary
                         myCheckboxList.Add(proprieta.Name, checkBox);
 
+                        // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
+                        string nomeProprieta = proprieta.Name;
+                        if (proprieta.GetCustomAttribute<JsonPropertyAttribute>() != null)
+                        {
+                            nomeProprieta = proprieta.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
+                        }
+
                         // Crea una label
                         Label label = new Label
                         {
-                            Text = proprieta.Name,
+                            Text = nomeProprieta,
                             VerticalTextAlignment = TextAlignment.Center,
                             HorizontalOptions = LayoutOptions.StartAndExpand,
                             GestureRecognizers =
+                            {
+                                new TapGestureRecognizer
+                                {
+                                    Command = new Command(() =>
                                     {
-                                        new TapGestureRecognizer
-                                        {
-                                            Command = new Command(() =>
-                                            {
-                                                checkBox.IsChecked = !checkBox.IsChecked;
-                                            })
-                                        }
-                                    }
+                                        checkBox.IsChecked = !checkBox.IsChecked;
+                                    })
+                                }
+                            }
                         };
 
                         // StackLayout padre per ogni gruppo checkbox + label
