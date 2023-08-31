@@ -85,13 +85,15 @@ namespace Pack__n__Go
                 stackLayoutCategoria.Children.Add(categoriaScelta);
 
                 // Carico il default
-                await JsonToCheckBox("default.json");
+                JsonToCheckBox("default.json");
 
                 // Carico l'optionals
-                await JsonToCheckBox("optionals.json");
+                JsonToCheckBox("optionals.json");
 
                 // Carico il file della categoria
                 await JsonToCheckBox(nomeFileJSON);
+
+                // Solo l'ultima funzione deve avere l'await, altrimenti non vengono generate le checkbox!!!
             }
             else
             {
