@@ -13,11 +13,14 @@ namespace Pack__n__Go
         string categoriaMaiuscola;
         string nomeFileJSON;
 
+        // Creo il dictionary per gli x:Name delle checkbox
+        Dictionary<string, CheckBox> myCheckboxList;
+
         // Lista di checkbox true
         List<string> checkboxTrue;
+        Dictionary<string, string> dictionaryCheckboxTrue;
 
         // Stacklayout
-        StackLayout stackLayoutSezione;
         StackLayout stackLayoutBase;
 
 
@@ -33,6 +36,9 @@ namespace Pack__n__Go
             this.nomeFileJSON = nomeFileJSON;
             this.checkboxTrue = checkboxTrue;
 
+            myCheckboxList = new Dictionary<string, CheckBox>();
+            dictionaryCheckboxTrue = new Dictionary<string, string>();
+
             SizeChanged += OnPageSizeChanged;
 
             GeneraXaml(categoriaMaiuscola, nomeFileJSON);
@@ -40,15 +46,24 @@ namespace Pack__n__Go
 
         private void OnPageSizeChanged(object sender, EventArgs e)
         {
+            SetSaveWidth();
             SetBackWidth();
         }
 
+        private void SetSaveWidth()
+        {
+            var displayInfo = DeviceDisplay.MainDisplayInfo;
+            double widthSchermo = displayInfo.Width;
+            double widthButton = widthSchermo * 0.2;
+            saveButton.WidthRequest = widthButton;
+        }
+        
         private void SetBackWidth()
         {
             var displayInfo = DeviceDisplay.MainDisplayInfo;
             double widthSchermo = displayInfo.Width;
-            double widthEntry = widthSchermo * 0.2;
-            backButton.WidthRequest = widthEntry;
+            double widthButton = widthSchermo * 0.2;
+            backButton.WidthRequest = widthButton;
         }
 
         private async Task GeneraXaml(string categoriaMaiuscola, string nomeFileJSON)
@@ -78,13 +93,16 @@ namespace Pack__n__Go
                 // Carico il file della categoria
                 await JsonToCheckBox(nomeFileJSON);
             }
+            else
+            {
+                await DisplayAlert("Errore", "Connettiti a internet per utilizzare l'applicazione", "OK");
+            }
         }
 
         private async Task JsonToCheckBox(string nomeFile)
         {
             // Leggo da Github il file
             string path = "https://raw.githubusercontent.com/Mattiadv03/PackNGo/master/Resources/JSON/" + nomeFile;
-            //string path = "https://raw.githubusercontent.com/Mattiadv03/PackNGo/master/Resources/JSON/temp/string.json";
 
             // Creo un'istanza di HttpClient
             HttpClient client = new HttpClient();
@@ -109,35 +127,25 @@ namespace Pack__n__Go
                     foreach (PropertyInfo property in properties)
                     {
                         // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
-                        string nomeProprieta = property.Name;
+                        string nomeSezione = property.Name;
                         if (property.GetCustomAttribute<JsonPropertyAttribute>() != null)
                         {
-                            nomeProprieta = property.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
+                            nomeSezione = property.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
                         }
 
                         // Creo il titolo di questa sezione
                         Label labelTitolo = new Label
                         {
-                            Text = nomeProprieta,
+                            Text = nomeSezione,
                             TextColor = Color.FromHex("#BB86FC"),
                             FontSize = 30,
                             HorizontalTextAlignment = TextAlignment.Center,
                             Margin = new Thickness(0, 30, 0, 0) // Applica un margine di 20 top
                         };
 
-                        // Creo lo stacklayout che conterrà tutta la sezione
-                        stackLayoutSezione = new StackLayout
-                        {
-                            Padding = new Thickness(0),
-                            HorizontalOptions = LayoutOptions.Center,
-                            VerticalOptions = LayoutOptions.Center
-                        };
-
                         // Aggiungo il titolo della sezione
                         stackLayoutBase = this.FindByName<StackLayout>("stackLayoutListaOggetti");
                         stackLayoutBase.Children.Add(labelTitolo);
-
-                        stackLayoutSezione.Children.Add(labelTitolo);
 
                         // Prendo i dati in base alla proprietà
                         object value = property.GetValue(datiDefault);
@@ -156,7 +164,7 @@ namespace Pack__n__Go
                             object elementoPropertyValue = elementoProperty.GetValue(value);
 
                             // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
-                            nomeProprieta = elementoProperty.Name;
+                            string nomeProprieta = elementoProperty.Name;
                             if (elementoProperty.GetCustomAttribute<JsonPropertyAttribute>() != null)
                             {
                                 nomeProprieta = elementoProperty.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
@@ -168,6 +176,8 @@ namespace Pack__n__Go
                                     // E' una stringa o un intero
                                 // Creo una checkbox
                                 CheckBox checkBox = GeneraCheckbox();
+
+                                myCheckboxList.Add(nomeProprieta, checkBox);
 
                                 // Crea una label
                                 Label label = new Label
@@ -201,7 +211,12 @@ namespace Pack__n__Go
                                         double calcolo = Convert.ToDouble(durata) / numero;
                                         int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
 
-                                        label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                        string valore = nomeProprieta + " ➞ " + numeroOggetti;
+
+                                        label.Text = valore;
+
+                                        // Salvo nel dictionary l'elemento
+                                        dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                     }
                                     else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\*\s*\d+"))
                                     {
@@ -213,7 +228,12 @@ namespace Pack__n__Go
                                         double calcolo = Convert.ToDouble(durata) * numero;
                                         int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
 
-                                        label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                        string valore = nomeProprieta + " ➞ " + numeroOggetti;
+
+                                        label.Text = valore;
+
+                                        // Salvo nel dictionary l'elemento
+                                        dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                     }
                                     else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\+\s*\d+"))
                                     {
@@ -225,17 +245,32 @@ namespace Pack__n__Go
                                         double calcolo = Convert.ToDouble(durata) + numero;
                                         int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
 
-                                        label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                        string valore = nomeProprieta + " ➞ " + numeroOggetti;
+
+                                        label.Text = valore;
+
+                                        // Salvo nel dictionary l'elemento
+                                        dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                     }
 
                                     else
                                     {
-                                        label.Text = nomeProprieta + " ➞ " + elementoString;
+                                        string valore = nomeProprieta + " ➞ " + elementoString;
+
+                                        label.Text = valore;
+
+                                        // Salvo nel dictionary l'elemento
+                                        dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                     }
                                 }
                                 else if (elementoPropertyValue is int elementoInt)
                                 {
-                                    label.Text = nomeProprieta + " ➞ " + elementoInt.ToString();
+                                    string valore = nomeProprieta + " ➞ " + elementoInt.ToString();
+
+                                    label.Text = valore;
+
+                                    // Salvo nel dictionary l'elemento
+                                    dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                 }
 
                                 // Creo lo stacklayout che lo contiene
@@ -260,6 +295,8 @@ namespace Pack__n__Go
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
 
+                                    myCheckboxList.Add(nomeProprieta, checkBox);
+
                                     // Crea una label
                                     Label label = new Label 
                                     {
@@ -277,6 +314,9 @@ namespace Pack__n__Go
                                             }
                                         }
                                     };
+
+                                    // Salvo nel dictionary l'elemento
+                                    dictionaryCheckboxTrue.Add(nomeSezione, elementoListValue);
 
                                     // Creo lo stacklayout che lo contiene
                                     StackLayout stackLayoutCheckbox = new StackLayout
@@ -309,35 +349,25 @@ namespace Pack__n__Go
                         if (checkboxTrue.Contains(property.Name))
                         {
                             // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
-                            string nomeProprieta = property.Name;
+                            string nomeSezione = property.Name;
                             if (property.GetCustomAttribute<JsonPropertyAttribute>() != null)
                             {
-                                nomeProprieta = property.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
+                                nomeSezione = property.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
                             }
 
                             // Creo il titolo di questa sezione
                             Label labelTitolo = new Label
                             {
-                                Text = nomeProprieta,
+                                Text = nomeSezione,
                                 TextColor = Color.FromHex("#BB86FC"),
                                 FontSize = 30,
                                 HorizontalTextAlignment = TextAlignment.Center,
                                 Margin = new Thickness(0, 30, 0, 0) // Applica un margine di 20 top
                             };
 
-                            // Creo lo stacklayout che conterrà tutta la sezione
-                            stackLayoutSezione = new StackLayout
-                            {
-                                Padding = new Thickness(0),
-                                HorizontalOptions = LayoutOptions.Center,
-                                VerticalOptions = LayoutOptions.Center
-                            };
-
                             // Aggiungo il titolo della sezione
                             stackLayoutBase = this.FindByName<StackLayout>("stackLayoutListaOggetti");
                             stackLayoutBase.Children.Add(labelTitolo);
-
-                            stackLayoutSezione.Children.Add(labelTitolo);
 
                             // Prendo i dati in base alla proprietà
                             object value = property.GetValue(opzionali);
@@ -356,7 +386,7 @@ namespace Pack__n__Go
                                 object elementoPropertiesValue = elementoProperty.GetValue(value);
 
                                 // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
-                                nomeProprieta = elementoProperty.Name;
+                                string nomeProprieta = elementoProperty.Name;
                                 if (elementoProperty.GetCustomAttribute<JsonPropertyAttribute>() != null)
                                 {
                                     nomeProprieta = elementoProperty.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
@@ -365,9 +395,10 @@ namespace Pack__n__Go
                                 // Controllo se è un array o un oggetto
                                 if (elementoPropertiesValue is string || elementoPropertiesValue is int)
                                 {
-                                    // E' una stringa o un intero
+                                        // E' una stringa o un intero
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
+                                    myCheckboxList.Add(nomeProprieta, checkBox);
 
                                     // Crea una label
                                     Label label = new Label
@@ -375,15 +406,15 @@ namespace Pack__n__Go
                                         VerticalTextAlignment = TextAlignment.Center,
                                         HorizontalOptions = LayoutOptions.StartAndExpand,
                                         GestureRecognizers =
-                                    {
-                                        new TapGestureRecognizer
                                         {
-                                            Command = new Command(() =>
+                                            new TapGestureRecognizer
                                             {
-                                                checkBox.IsChecked = !checkBox.IsChecked;
-                                            })
+                                                Command = new Command(() =>
+                                                {
+                                                    checkBox.IsChecked = !checkBox.IsChecked;
+                                                })
+                                            }
                                         }
-                                    }
                                     };
 
                                     if (elementoPropertiesValue is string elementoString)
@@ -401,7 +432,12 @@ namespace Pack__n__Go
                                             double calcolo = Convert.ToDouble(durata) / numero;
                                             int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
 
-                                            label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                            string valore = nomeProprieta + " ➞ " + numeroOggetti;
+
+                                            label.Text = valore;
+
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                         }
                                         else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\*\s*\d+"))
                                         {
@@ -413,7 +449,12 @@ namespace Pack__n__Go
                                             double calcolo = Convert.ToDouble(durata) * numero;
                                             int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
 
-                                            label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                            string valore = nomeProprieta + " ➞ " + numeroOggetti;
+
+                                            label.Text = valore;
+
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                         }
                                         else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\+\s*\d+"))
                                         {
@@ -425,17 +466,32 @@ namespace Pack__n__Go
                                             double calcolo = Convert.ToDouble(durata) + numero;
                                             int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
 
-                                            label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                            string valore = nomeProprieta + " ➞ " + numeroOggetti;
+
+                                            label.Text = valore;
+
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                         }
 
                                         else
                                         {
-                                            label.Text = nomeProprieta + " ➞ " + elementoString;
+                                            string valore = nomeProprieta + " ➞ " + elementoString;
+
+                                            label.Text = valore;
+
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                         }
                                     }
                                     else if (elementoPropertiesValue is int elementoInt)
                                     {
-                                        label.Text = nomeProprieta + " ➞ " + elementoInt.ToString();
+                                        string valore = nomeProprieta + " ➞ " + elementoInt.ToString();
+
+                                        label.Text = valore;
+
+                                        // Salvo nel dictionary l'elemento
+                                        dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                     }
 
                                     // Creo lo stacklayout che lo contiene
@@ -460,6 +516,8 @@ namespace Pack__n__Go
                                         // Creo una checkbox
                                         CheckBox checkBox = GeneraCheckbox();
 
+                                        myCheckboxList.Add(nomeProprieta, checkBox);
+
                                         // Crea una label
                                         Label label = new Label
                                         {
@@ -467,16 +525,19 @@ namespace Pack__n__Go
                                             VerticalTextAlignment = TextAlignment.Center,
                                             HorizontalOptions = LayoutOptions.StartAndExpand,
                                             GestureRecognizers =
-                                        {
-                                            new TapGestureRecognizer
                                             {
-                                                Command = new Command(() =>
+                                                new TapGestureRecognizer
                                                 {
-                                                    checkBox.IsChecked = !checkBox.IsChecked;
-                                                })
+                                                    Command = new Command(() =>
+                                                    {
+                                                        checkBox.IsChecked = !checkBox.IsChecked;
+                                                    })
+                                                }
                                             }
-                                        }
                                         };
+
+                                        // Salvo nel dictionary l'elemento
+                                        dictionaryCheckboxTrue.Add(nomeSezione, elementoListValue);
 
                                         // Creo lo stacklayout che lo contiene
                                         StackLayout stackLayoutCheckbox = new StackLayout
@@ -521,41 +582,31 @@ namespace Pack__n__Go
                         else
                         {
                             // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
-                            string nomeProprieta = property.Name;
+                            string nomeSezione = property.Name;
                             if (property.GetCustomAttribute<JsonPropertyAttribute>() != null)
                             {
-                                nomeProprieta = property.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
+                                nomeSezione = property.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
 
                                 // Sostituisco mare-lago con categoria di vacanza corretta
-                                if (nomeProprieta.Contains("mare-lago"))
+                                if (nomeSezione.Contains("mare-lago"))
                                 {
-                                    nomeProprieta = nomeProprieta.Replace("mare-lago", categoria);
+                                    nomeSezione = nomeSezione.Replace("mare-lago", categoria);
                                 }
                             }
 
                             // Creo il titolo di questa sezione
                             Label labelTitolo = new Label
                             {
-                                Text = nomeProprieta,
+                                Text = nomeSezione,
                                 TextColor = Color.FromHex("#BB86FC"),
                                 FontSize = 30,
                                 HorizontalTextAlignment = TextAlignment.Center,
                                 Margin = new Thickness(0, 30, 0, 0) // Applica un margine di 20 top
                             };
 
-                            // Creo lo stacklayout che conterrà tutta la sezione
-                            stackLayoutSezione = new StackLayout
-                            {
-                                Padding = new Thickness(0),
-                                HorizontalOptions = LayoutOptions.Center,
-                                VerticalOptions = LayoutOptions.Center
-                            };
-
                             // Aggiungo il titolo della sezione
                             stackLayoutBase = this.FindByName<StackLayout>("stackLayoutListaOggetti");
                             stackLayoutBase.Children.Add(labelTitolo);
-
-                            stackLayoutSezione.Children.Add(labelTitolo);
 
                             // Prendo i dati in base alla proprietà
                             object value = property.GetValue(mare_lago);
@@ -574,7 +625,7 @@ namespace Pack__n__Go
                                 object elementoPropertiesValue = elementoProperty.GetValue(value);
 
                                 // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
-                                nomeProprieta = elementoProperty.Name;
+                                string nomeProprieta = elementoProperty.Name;
                                 if (elementoProperty.GetCustomAttribute<JsonPropertyAttribute>() != null)
                                 {
                                     nomeProprieta = elementoProperty.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
@@ -587,21 +638,23 @@ namespace Pack__n__Go
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
 
+                                    myCheckboxList.Add(nomeProprieta, checkBox);
+
                                     // Crea una label
                                     Label label = new Label
                                     {
                                         VerticalTextAlignment = TextAlignment.Center,
                                         HorizontalOptions = LayoutOptions.StartAndExpand,
                                         GestureRecognizers =
-                                    {
-                                        new TapGestureRecognizer
                                         {
-                                            Command = new Command(() =>
+                                            new TapGestureRecognizer
                                             {
-                                                checkBox.IsChecked = !checkBox.IsChecked;
-                                            })
+                                                Command = new Command(() =>
+                                                {
+                                                    checkBox.IsChecked = !checkBox.IsChecked;
+                                                })
+                                            }
                                         }
-                                    }
                                     };
 
                                     if (elementoPropertiesValue is string elementoString)
@@ -619,7 +672,12 @@ namespace Pack__n__Go
                                             double calcolo = Convert.ToDouble(durata) / numero;
                                             int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
 
-                                            label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                            string valore = nomeProprieta + " ➞ " + numeroOggetti;
+
+                                            label.Text = valore;
+
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                         }
                                         else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\*\s*\d+"))
                                         {
@@ -631,7 +689,12 @@ namespace Pack__n__Go
                                             double calcolo = Convert.ToDouble(durata) * numero;
                                             int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
 
-                                            label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                            string valore = nomeProprieta + " ➞ " + numeroOggetti;
+
+                                            label.Text = valore;
+
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                         }
                                         else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\+\s*\d+"))
                                         {
@@ -643,17 +706,32 @@ namespace Pack__n__Go
                                             double calcolo = Convert.ToDouble(durata) + numero;
                                             int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
 
-                                            label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                            string valore = nomeProprieta + " ➞ " + numeroOggetti;
+
+                                            label.Text = valore;
+
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                         }
 
                                         else
                                         {
-                                            label.Text = nomeProprieta + " ➞ " + elementoString;
+                                            string valore = nomeProprieta + " ➞ " + elementoString;
+
+                                            label.Text = valore;
+
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                         }
                                     }
                                     else if (elementoPropertiesValue is int elementoInt)
                                     {
-                                        label.Text = nomeProprieta + " ➞ " + elementoInt.ToString();
+                                        string valore = nomeProprieta + " ➞ " + elementoInt.ToString();
+
+                                        label.Text = valore;
+
+                                        // Salvo nel dictionary l'elemento
+                                        dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                     }
 
                                     // Creo lo stacklayout che lo contiene
@@ -678,6 +756,8 @@ namespace Pack__n__Go
                                         // Creo una checkbox
                                         CheckBox checkBox = GeneraCheckbox();
 
+                                        myCheckboxList.Add(nomeProprieta, checkBox);
+
                                         // Crea una label
                                         Label label = new Label
                                         {
@@ -685,15 +765,15 @@ namespace Pack__n__Go
                                             VerticalTextAlignment = TextAlignment.Center,
                                             HorizontalOptions = LayoutOptions.StartAndExpand,
                                             GestureRecognizers =
-                                        {
-                                            new TapGestureRecognizer
                                             {
-                                                Command = new Command(() =>
+                                                new TapGestureRecognizer
                                                 {
-                                                    checkBox.IsChecked = !checkBox.IsChecked;
-                                                })
+                                                    Command = new Command(() =>
+                                                    {
+                                                        checkBox.IsChecked = !checkBox.IsChecked;
+                                                    })
+                                                }
                                             }
-                                        }
                                         };
 
                                         // Creo lo stacklayout che lo contiene
@@ -739,35 +819,25 @@ namespace Pack__n__Go
                         else
                         {
                             // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
-                            string nomeProprieta = property.Name;
+                            string nomeSezione = property.Name;
                             if (property.GetCustomAttribute<JsonPropertyAttribute>() != null)
                             {
-                                nomeProprieta = property.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
+                                nomeSezione = property.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
                             }
 
                             // Creo il titolo di questa sezione
                             Label labelTitolo = new Label
                             {
-                                Text = nomeProprieta,
+                                Text = nomeSezione,
                                 TextColor = Color.FromHex("#BB86FC"),
                                 FontSize = 30,
                                 HorizontalTextAlignment = TextAlignment.Center,
                                 Margin = new Thickness(0, 30, 0, 0) // Applica un margine di 20 top
                             };
 
-                            // Creo lo stacklayout che conterrà tutta la sezione
-                            stackLayoutSezione = new StackLayout
-                            {
-                                Padding = new Thickness(0),
-                                HorizontalOptions = LayoutOptions.Center,
-                                VerticalOptions = LayoutOptions.Center
-                            };
-
                             // Aggiungo il titolo della sezione
                             stackLayoutBase = this.FindByName<StackLayout>("stackLayoutListaOggetti");
                             stackLayoutBase.Children.Add(labelTitolo);
-
-                            stackLayoutSezione.Children.Add(labelTitolo);
 
                             // Prendo i dati in base alla proprietà
                             object value = property.GetValue(montagna);
@@ -786,7 +856,7 @@ namespace Pack__n__Go
                                 object elementoPropertiesValue = elementoProperty.GetValue(value);
 
                                 // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
-                                nomeProprieta = elementoProperty.Name;
+                                string nomeProprieta = elementoProperty.Name;
                                 if (elementoProperty.GetCustomAttribute<JsonPropertyAttribute>() != null)
                                 {
                                     nomeProprieta = elementoProperty.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
@@ -795,9 +865,11 @@ namespace Pack__n__Go
                                 // Controllo se è un array o un oggetto
                                 if (elementoPropertiesValue is string || elementoPropertiesValue is int)
                                 {
-                                    // E' una stringa o un intero
+                                        // E' una stringa o un intero
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
+
+                                    myCheckboxList.Add(nomeProprieta, checkBox);
 
                                     // Crea una label
                                     Label label = new Label
@@ -805,15 +877,15 @@ namespace Pack__n__Go
                                         VerticalTextAlignment = TextAlignment.Center,
                                         HorizontalOptions = LayoutOptions.StartAndExpand,
                                         GestureRecognizers =
-                                    {
-                                        new TapGestureRecognizer
                                         {
-                                            Command = new Command(() =>
+                                            new TapGestureRecognizer
                                             {
-                                                checkBox.IsChecked = !checkBox.IsChecked;
-                                            })
+                                                Command = new Command(() =>
+                                                {
+                                                    checkBox.IsChecked = !checkBox.IsChecked;
+                                                })
+                                            }
                                         }
-                                    }
                                     };
 
                                     if (elementoPropertiesValue is string elementoString)
@@ -831,7 +903,12 @@ namespace Pack__n__Go
                                             double calcolo = Convert.ToDouble(durata) / numero;
                                             int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
 
-                                            label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                            string valore = nomeProprieta + " ➞ " + numeroOggetti;
+
+                                            label.Text = valore;
+
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                         }
                                         else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\*\s*\d+"))
                                         {
@@ -843,7 +920,12 @@ namespace Pack__n__Go
                                             double calcolo = Convert.ToDouble(durata) * numero;
                                             int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
 
-                                            label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                            string valore = nomeProprieta + " ➞ " + numeroOggetti;
+
+                                            label.Text = valore;
+
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                         }
                                         else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\+\s*\d+"))
                                         {
@@ -855,17 +937,32 @@ namespace Pack__n__Go
                                             double calcolo = Convert.ToDouble(durata) + numero;
                                             int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
 
-                                            label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                            string valore = nomeProprieta + " ➞ " + numeroOggetti;
+
+                                            label.Text = valore;
+
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                         }
 
                                         else
                                         {
-                                            label.Text = nomeProprieta + " ➞ " + elementoString;
+                                            string valore = nomeProprieta + " ➞ " + elementoString;
+
+                                            label.Text = valore;
+
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                         }
                                     }
                                     else if (elementoPropertiesValue is int elementoInt)
                                     {
-                                        label.Text = nomeProprieta + " ➞ " + elementoInt.ToString();
+                                        string valore = nomeProprieta + " ➞ " + elementoInt.ToString();
+
+                                        label.Text = valore;
+
+                                        // Salvo nel dictionary l'elemento
+                                        dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                     }
 
                                     // Creo lo stacklayout che lo contiene
@@ -890,6 +987,8 @@ namespace Pack__n__Go
                                         // Creo una checkbox
                                         CheckBox checkBox = GeneraCheckbox();
 
+                                        myCheckboxList.Add(nomeProprieta, checkBox);
+
                                         // Crea una label
                                         Label label = new Label
                                         {
@@ -897,15 +996,15 @@ namespace Pack__n__Go
                                             VerticalTextAlignment = TextAlignment.Center,
                                             HorizontalOptions = LayoutOptions.StartAndExpand,
                                             GestureRecognizers =
-                                        {
-                                            new TapGestureRecognizer
                                             {
-                                                Command = new Command(() =>
+                                                new TapGestureRecognizer
                                                 {
-                                                    checkBox.IsChecked = !checkBox.IsChecked;
-                                                })
+                                                    Command = new Command(() =>
+                                                    {
+                                                        checkBox.IsChecked = !checkBox.IsChecked;
+                                                    })
+                                                }
                                             }
-                                        }
                                         };
 
                                         // Creo lo stacklayout che lo contiene
@@ -951,10 +1050,10 @@ namespace Pack__n__Go
                         else
                         {
                             // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
-                            string nomeProprieta = property.Name;
+                            string nomeSezione = property.Name;
                             if (property.GetCustomAttribute<JsonPropertyAttribute>() != null)
                             {
-                                nomeProprieta = property.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
+                                nomeSezione = property.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
                             }
 
                             // Creo il titolo di questa sezione
@@ -967,19 +1066,9 @@ namespace Pack__n__Go
                                 Margin = new Thickness(0, 30, 0, 0) // Applica un margine di 20 top
                             };
 
-                            // Creo lo stacklayout che conterrà tutta la sezione
-                            stackLayoutSezione = new StackLayout
-                            {
-                                Padding = new Thickness(0),
-                                HorizontalOptions = LayoutOptions.Center,
-                                VerticalOptions = LayoutOptions.Center
-                            };
-
                             // Aggiungo il titolo della sezione
                             stackLayoutBase = this.FindByName<StackLayout>("stackLayoutListaOggetti");
                             stackLayoutBase.Children.Add(labelTitolo);
-
-                            stackLayoutSezione.Children.Add(labelTitolo);
 
                             // Prendo i dati in base alla proprietà
                             object value = property.GetValue(visitaCitta);
@@ -998,7 +1087,7 @@ namespace Pack__n__Go
                                 object elementoPropertiesValue = elementoProperty.GetValue(value);
 
                                 // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
-                                nomeProprieta = elementoProperty.Name;
+                                string nomeProprieta = elementoProperty.Name;
                                 if (elementoProperty.GetCustomAttribute<JsonPropertyAttribute>() != null)
                                 {
                                     nomeProprieta = elementoProperty.GetCustomAttribute<JsonPropertyAttribute>().PropertyName;
@@ -1007,9 +1096,11 @@ namespace Pack__n__Go
                                 // Controllo se è un array o un oggetto
                                 if (elementoPropertiesValue is string || elementoPropertiesValue is int)
                                 {
-                                    // E' una stringa o un intero
+                                        // E' una stringa o un intero
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
+
+                                    myCheckboxList.Add(nomeProprieta, checkBox);
 
                                     // Crea una label
                                     Label label = new Label
@@ -1017,15 +1108,15 @@ namespace Pack__n__Go
                                         VerticalTextAlignment = TextAlignment.Center,
                                         HorizontalOptions = LayoutOptions.StartAndExpand,
                                         GestureRecognizers =
-                                    {
-                                        new TapGestureRecognizer
                                         {
-                                            Command = new Command(() =>
+                                            new TapGestureRecognizer
                                             {
-                                                checkBox.IsChecked = !checkBox.IsChecked;
-                                            })
+                                                Command = new Command(() =>
+                                                {
+                                                    checkBox.IsChecked = !checkBox.IsChecked;
+                                                })
+                                            }
                                         }
-                                    }
                                     };
 
                                     if (elementoPropertiesValue is string elementoString)
@@ -1043,7 +1134,12 @@ namespace Pack__n__Go
                                             double calcolo = Convert.ToDouble(durata) / numero;
                                             int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
 
-                                            label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                            string valore = nomeProprieta + " ➞ " + numeroOggetti;
+
+                                            label.Text = valore;
+
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                         }
                                         else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\*\s*\d+"))
                                         {
@@ -1055,7 +1151,12 @@ namespace Pack__n__Go
                                             double calcolo = Convert.ToDouble(durata) * numero;
                                             int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
 
-                                            label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                            string valore = nomeProprieta + " ➞ " + numeroOggetti;
+
+                                            label.Text = valore;
+
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                         }
                                         else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\+\s*\d+"))
                                         {
@@ -1067,17 +1168,32 @@ namespace Pack__n__Go
                                             double calcolo = Convert.ToDouble(durata) + numero;
                                             int numeroOggetti = Convert.ToInt32(Math.Ceiling(calcolo));
 
-                                            label.Text = nomeProprieta + " ➞ " + numeroOggetti;
+                                            string valore = nomeProprieta + " ➞ " + numeroOggetti;
+
+                                            label.Text = valore;
+
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                         }
 
                                         else
                                         {
-                                            label.Text = nomeProprieta + " ➞ " + elementoString;
+                                            string valore = nomeProprieta + " ➞ " + elementoString;
+
+                                            label.Text = valore;
+
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                         }
                                     }
                                     else if (elementoPropertiesValue is int elementoInt)
                                     {
-                                        label.Text = nomeProprieta + " ➞ " + elementoInt.ToString();
+                                        string valore = nomeProprieta + " ➞ " + elementoInt.ToString();
+
+                                        label.Text = valore;
+
+                                        // Salvo nel dictionary l'elemento
+                                        dictionaryCheckboxTrue.Add(nomeSezione, valore);
                                     }
 
                                     // Creo lo stacklayout che lo contiene
@@ -1102,6 +1218,8 @@ namespace Pack__n__Go
                                         // Creo una checkbox
                                         CheckBox checkBox = GeneraCheckbox();
 
+                                        myCheckboxList.Add(nomeProprieta, checkBox);
+
                                         // Crea una label
                                         Label label = new Label
                                         {
@@ -1109,15 +1227,15 @@ namespace Pack__n__Go
                                             VerticalTextAlignment = TextAlignment.Center,
                                             HorizontalOptions = LayoutOptions.StartAndExpand,
                                             GestureRecognizers =
-                                        {
-                                            new TapGestureRecognizer
                                             {
-                                                Command = new Command(() =>
+                                                new TapGestureRecognizer
                                                 {
-                                                    checkBox.IsChecked = !checkBox.IsChecked;
-                                                })
+                                                    Command = new Command(() =>
+                                                    {
+                                                        checkBox.IsChecked = !checkBox.IsChecked;
+                                                    })
+                                                }
                                             }
-                                        }
                                         };
 
                                         // Creo lo stacklayout che lo contiene
@@ -1161,6 +1279,26 @@ namespace Pack__n__Go
             };
         }
 
+        private void SaveClicked(object sender, EventArgs e)
+        {
+            checkboxTrue = new List<string>();
+
+            // Prendo le chiavi delle checkbox true
+            foreach (var keys in myCheckboxList.Keys)
+            {
+                // Prendo la checkbox di riferimento
+                CheckBox cb = myCheckboxList[keys];
+
+                // Controllo se è checked
+                if (cb.IsChecked)
+                {
+                    checkboxTrue.Add(keys);
+                }
+            }
+
+            Navigation.PushAsync(new Preview(stagione, nomeVacanza, durata, categoria, categoriaMaiuscola, checkboxTrue));
+        }
+        
         private void BackClicked(object sender, EventArgs e)
         {
             Navigation.PopAsync();
