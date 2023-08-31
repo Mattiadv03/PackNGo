@@ -47,6 +47,7 @@ namespace Pack__n__Go
         private void OnPageSizeChanged(object sender, EventArgs e)
         {
             SetSaveWidth();
+            SetCheckWidth();
             SetBackWidth();
         }
 
@@ -56,6 +57,14 @@ namespace Pack__n__Go
             double widthSchermo = displayInfo.Width;
             double widthButton = widthSchermo * 0.2;
             saveButton.WidthRequest = widthButton;
+        }
+        
+        private void SetCheckWidth()
+        {
+            var displayInfo = DeviceDisplay.MainDisplayInfo;
+            double widthSchermo = displayInfo.Width;
+            double widthButton = widthSchermo * 0.2;
+            checkAllButton.WidthRequest = widthButton;
         }
         
         private void SetBackWidth()
@@ -1308,6 +1317,32 @@ namespace Pack__n__Go
             }
 
             Navigation.PushAsync(new Preview(stagione, nomeVacanza, durata, categoria, categoriaMaiuscola, checkboxTrue));
+        }
+        
+        private void checkAllClicked(object sender, EventArgs e)
+        {
+            if(checkAllButton.Text == "Seleziona tutto")
+            {
+                // Attivo tutte le checkbox
+                foreach (CheckBox cb in myCheckboxList.Values)
+                {
+                    cb.IsChecked = true;
+                }
+
+                // Lo trasformo in deseleziona tutto
+                checkAllButton.Text = "Deseleziona tutto";
+            }
+            else
+            {
+                // Disattivo tutte le checkbox
+                foreach (CheckBox cb in myCheckboxList.Values)
+                {
+                    cb.IsChecked = false;
+                }
+
+                // Lo trasformo in deseleziona tutto
+                checkAllButton.Text = "Seleziona tutto";
+            }
         }
         
         private void BackClicked(object sender, EventArgs e)
