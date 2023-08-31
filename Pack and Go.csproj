@@ -57,6 +57,9 @@
 	  <Compile Update="categoria.xaml.cs">
 	    <DependentUpon>Categoria.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Preview.xaml.cs">
+	    <DependentUpon>Preview.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Valigia.xaml.cs">
 	    <DependentUpon>Valigia.xaml</DependentUpon>
 	  </Compile>
@@ -67,6 +70,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Categoria.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Preview.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Valigia.xaml">
