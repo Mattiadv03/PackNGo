@@ -216,7 +216,7 @@ namespace Pack__n__Go
                                         label.Text = valore;
 
                                         // Salvo nel dictionary l'elemento
-                                        dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                        dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                     }
                                     else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\*\s*\d+"))
                                     {
@@ -233,7 +233,7 @@ namespace Pack__n__Go
                                         label.Text = valore;
 
                                         // Salvo nel dictionary l'elemento
-                                        dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                        dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                     }
                                     else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\+\s*\d+"))
                                     {
@@ -250,7 +250,7 @@ namespace Pack__n__Go
                                         label.Text = valore;
 
                                         // Salvo nel dictionary l'elemento
-                                        dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                        dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                     }
 
                                     else
@@ -260,7 +260,7 @@ namespace Pack__n__Go
                                         label.Text = valore;
 
                                         // Salvo nel dictionary l'elemento
-                                        dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                        dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                     }
                                 }
                                 else if (elementoPropertyValue is int elementoInt)
@@ -270,7 +270,7 @@ namespace Pack__n__Go
                                     label.Text = valore;
 
                                     // Salvo nel dictionary l'elemento
-                                    dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                    dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                 }
 
                                 // Creo lo stacklayout che lo contiene
@@ -295,7 +295,7 @@ namespace Pack__n__Go
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
 
-                                    myCheckboxList.Add(nomeProprieta, checkBox);
+                                    myCheckboxList.Add(elementoListValue, checkBox);
 
                                     // Crea una label
                                     Label label = new Label 
@@ -316,7 +316,7 @@ namespace Pack__n__Go
                                     };
 
                                     // Salvo nel dictionary l'elemento
-                                    dictionaryCheckboxTrue.Add(nomeSezione, elementoListValue);
+                                    dictionaryCheckboxTrue.Add(elementoListValue, nomeSezione);
 
                                     // Creo lo stacklayout che lo contiene
                                     StackLayout stackLayoutCheckbox = new StackLayout
@@ -437,7 +437,7 @@ namespace Pack__n__Go
                                             label.Text = valore;
 
                                             // Salvo nel dictionary l'elemento
-                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                         }
                                         else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\*\s*\d+"))
                                         {
@@ -454,7 +454,7 @@ namespace Pack__n__Go
                                             label.Text = valore;
 
                                             // Salvo nel dictionary l'elemento
-                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                         }
                                         else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\+\s*\d+"))
                                         {
@@ -471,7 +471,7 @@ namespace Pack__n__Go
                                             label.Text = valore;
 
                                             // Salvo nel dictionary l'elemento
-                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                         }
 
                                         else
@@ -481,7 +481,7 @@ namespace Pack__n__Go
                                             label.Text = valore;
 
                                             // Salvo nel dictionary l'elemento
-                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                         }
                                     }
                                     else if (elementoPropertiesValue is int elementoInt)
@@ -491,7 +491,7 @@ namespace Pack__n__Go
                                         label.Text = valore;
 
                                         // Salvo nel dictionary l'elemento
-                                        dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                        dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                     }
 
                                     // Creo lo stacklayout che lo contiene
@@ -537,7 +537,7 @@ namespace Pack__n__Go
                                         };
 
                                         // Salvo nel dictionary l'elemento
-                                        dictionaryCheckboxTrue.Add(nomeSezione, elementoListValue);
+                                        dictionaryCheckboxTrue.Add(elementoListValue, nomeSezione);
 
                                         // Creo lo stacklayout che lo contiene
                                         StackLayout stackLayoutCheckbox = new StackLayout
@@ -677,7 +677,7 @@ namespace Pack__n__Go
                                             label.Text = valore;
 
                                             // Salvo nel dictionary l'elemento
-                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                         }
                                         else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\*\s*\d+"))
                                         {
@@ -694,7 +694,7 @@ namespace Pack__n__Go
                                             label.Text = valore;
 
                                             // Salvo nel dictionary l'elemento
-                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                         }
                                         else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\+\s*\d+"))
                                         {
@@ -711,7 +711,7 @@ namespace Pack__n__Go
                                             label.Text = valore;
 
                                             // Salvo nel dictionary l'elemento
-                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                         }
 
                                         else
@@ -721,7 +721,7 @@ namespace Pack__n__Go
                                             label.Text = valore;
 
                                             // Salvo nel dictionary l'elemento
-                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                         }
                                     }
                                     else if (elementoPropertiesValue is int elementoInt)
@@ -731,7 +731,7 @@ namespace Pack__n__Go
                                         label.Text = valore;
 
                                         // Salvo nel dictionary l'elemento
-                                        dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                        dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                     }
 
                                     // Creo lo stacklayout che lo contiene
@@ -775,6 +775,9 @@ namespace Pack__n__Go
                                                 }
                                             }
                                         };
+
+                                        // Salvo nel dictionary l'elemento
+                                        dictionaryCheckboxTrue.Add(elementoListValue, nomeSezione);
 
                                         // Creo lo stacklayout che lo contiene
                                         StackLayout stackLayoutCheckbox = new StackLayout
@@ -908,7 +911,7 @@ namespace Pack__n__Go
                                             label.Text = valore;
 
                                             // Salvo nel dictionary l'elemento
-                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                         }
                                         else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\*\s*\d+"))
                                         {
@@ -925,7 +928,7 @@ namespace Pack__n__Go
                                             label.Text = valore;
 
                                             // Salvo nel dictionary l'elemento
-                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                         }
                                         else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\+\s*\d+"))
                                         {
@@ -942,7 +945,7 @@ namespace Pack__n__Go
                                             label.Text = valore;
 
                                             // Salvo nel dictionary l'elemento
-                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                         }
 
                                         else
@@ -952,7 +955,7 @@ namespace Pack__n__Go
                                             label.Text = valore;
 
                                             // Salvo nel dictionary l'elemento
-                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                         }
                                     }
                                     else if (elementoPropertiesValue is int elementoInt)
@@ -962,7 +965,7 @@ namespace Pack__n__Go
                                         label.Text = valore;
 
                                         // Salvo nel dictionary l'elemento
-                                        dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                        dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                     }
 
                                     // Creo lo stacklayout che lo contiene
@@ -1006,6 +1009,9 @@ namespace Pack__n__Go
                                                 }
                                             }
                                         };
+
+                                        // Salvo nel dictionary l'elemento
+                                        dictionaryCheckboxTrue.Add(elementoListValue, nomeSezione);
 
                                         // Creo lo stacklayout che lo contiene
                                         StackLayout stackLayoutCheckbox = new StackLayout
@@ -1059,7 +1065,7 @@ namespace Pack__n__Go
                             // Creo il titolo di questa sezione
                             Label labelTitolo = new Label
                             {
-                                Text = nomeProprieta,
+                                Text = nomeSezione,
                                 TextColor = Color.FromHex("#BB86FC"),
                                 FontSize = 30,
                                 HorizontalTextAlignment = TextAlignment.Center,
@@ -1139,7 +1145,7 @@ namespace Pack__n__Go
                                             label.Text = valore;
 
                                             // Salvo nel dictionary l'elemento
-                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                         }
                                         else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\*\s*\d+"))
                                         {
@@ -1156,7 +1162,7 @@ namespace Pack__n__Go
                                             label.Text = valore;
 
                                             // Salvo nel dictionary l'elemento
-                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                         }
                                         else if (Regex.IsMatch(stringaLetta, @"\b\w+\s*\+\s*\d+"))
                                         {
@@ -1173,7 +1179,7 @@ namespace Pack__n__Go
                                             label.Text = valore;
 
                                             // Salvo nel dictionary l'elemento
-                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                         }
 
                                         else
@@ -1183,7 +1189,7 @@ namespace Pack__n__Go
                                             label.Text = valore;
 
                                             // Salvo nel dictionary l'elemento
-                                            dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                         }
                                     }
                                     else if (elementoPropertiesValue is int elementoInt)
@@ -1193,7 +1199,7 @@ namespace Pack__n__Go
                                         label.Text = valore;
 
                                         // Salvo nel dictionary l'elemento
-                                        dictionaryCheckboxTrue.Add(nomeSezione, valore);
+                                        dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                     }
 
                                     // Creo lo stacklayout che lo contiene
@@ -1237,6 +1243,9 @@ namespace Pack__n__Go
                                                 }
                                             }
                                         };
+
+                                        // Salvo nel dictionary l'elemento
+                                        dictionaryCheckboxTrue.Add(elementoListValue, nomeSezione);
 
                                         // Creo lo stacklayout che lo contiene
                                         StackLayout stackLayoutCheckbox = new StackLayout

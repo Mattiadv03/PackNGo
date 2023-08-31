@@ -53,6 +53,8 @@
             if (accessType == NetworkAccess.Internet)
             {
                 GeneraXaml(categoriaMaiuscola);
+
+                // IN VALIIGIIA  NON VVENGONO FATTI TUTTI I SUCCESSIVI A DEFAULT
             }
             else
             {
