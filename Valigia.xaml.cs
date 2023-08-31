@@ -177,7 +177,7 @@ namespace Pack__n__Go
                                 // Creo una checkbox
                                 CheckBox checkBox = GeneraCheckbox();
 
-                                myCheckboxList.Add(nomeProprieta, checkBox);
+                                myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
 
                                 // Crea una label
                                 Label label = new Label
@@ -295,7 +295,7 @@ namespace Pack__n__Go
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
 
-                                    myCheckboxList.Add(elementoListValue, checkBox);
+                                    myCheckboxList.Add(elementoListValue + ";" + nomeSezione, checkBox);
 
                                     // Crea una label
                                     Label label = new Label 
@@ -398,7 +398,7 @@ namespace Pack__n__Go
                                         // E' una stringa o un intero
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
-                                    myCheckboxList.Add(nomeProprieta, checkBox);
+                                    myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
 
                                     // Crea una label
                                     Label label = new Label
@@ -516,7 +516,7 @@ namespace Pack__n__Go
                                         // Creo una checkbox
                                         CheckBox checkBox = GeneraCheckbox();
 
-                                        myCheckboxList.Add(nomeProprieta, checkBox);
+                                        myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
 
                                         // Crea una label
                                         Label label = new Label
@@ -638,7 +638,7 @@ namespace Pack__n__Go
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
 
-                                    myCheckboxList.Add(nomeProprieta, checkBox);
+                                    myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
 
                                     // Crea una label
                                     Label label = new Label
@@ -756,7 +756,7 @@ namespace Pack__n__Go
                                         // Creo una checkbox
                                         CheckBox checkBox = GeneraCheckbox();
 
-                                        myCheckboxList.Add(nomeProprieta, checkBox);
+                                        myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
 
                                         // Crea una label
                                         Label label = new Label
@@ -872,7 +872,7 @@ namespace Pack__n__Go
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
 
-                                    myCheckboxList.Add(nomeProprieta, checkBox);
+                                    myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
 
                                     // Crea una label
                                     Label label = new Label
@@ -990,7 +990,7 @@ namespace Pack__n__Go
                                         // Creo una checkbox
                                         CheckBox checkBox = GeneraCheckbox();
 
-                                        myCheckboxList.Add(nomeProprieta, checkBox);
+                                        myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
 
                                         // Crea una label
                                         Label label = new Label
@@ -1106,7 +1106,7 @@ namespace Pack__n__Go
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
 
-                                    myCheckboxList.Add(nomeProprieta, checkBox);
+                                    myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
 
                                     // Crea una label
                                     Label label = new Label
@@ -1224,7 +1224,7 @@ namespace Pack__n__Go
                                         // Creo una checkbox
                                         CheckBox checkBox = GeneraCheckbox();
 
-                                        myCheckboxList.Add(nomeProprieta, checkBox);
+                                        myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
 
                                         // Crea una label
                                         Label label = new Label

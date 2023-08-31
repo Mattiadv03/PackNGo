@@ -54,7 +54,7 @@
             {
                 GeneraXaml(categoriaMaiuscola);
 
-                // IN VALIIGIIA  NON VVENGONO FATTI TUTTI I SUCCESSIVI A DEFAULT
+                // IN VALIGIA  NON VENGONO FATTI TUTTI I SUCCESSIVI A DEFAULT
             }
             else
             {
