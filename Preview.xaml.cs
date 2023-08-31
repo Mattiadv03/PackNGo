@@ -34,9 +34,18 @@
 
         private void OnPageSizeChanged(object sender, EventArgs e)
         {
+            SetSaveWidth();
             SetBackWidth();
         }
 
+        private void SetSaveWidth()
+        {
+            var displayInfo = DeviceDisplay.MainDisplayInfo;
+            double widthSchermo = displayInfo.Width;
+            double widthEntry = widthSchermo * 0.2;
+            saveButton.WidthRequest = widthEntry;
+        }
+        
         private void SetBackWidth()
         {
             var displayInfo = DeviceDisplay.MainDisplayInfo;
@@ -53,8 +62,6 @@
             if (accessType == NetworkAccess.Internet)
             {
                 GeneraXaml(categoriaMaiuscola);
-
-                // IN VALIGIA  NON VENGONO FATTI TUTTI I SUCCESSIVI A DEFAULT
             }
             else
             {
@@ -75,24 +82,43 @@
             StackLayout stackLayoutCategoria = this.FindByName<StackLayout>("dynamicCategoria");
             stackLayoutCategoria.Children.Add(categoriaScelta);
 
+            string ultimaSezione = "";
+
+            // Creo lo stacklayout contiene le checkbox
+            StackLayout stackLayoutCheckbox = new StackLayout
+            {
+                Orientation = StackOrientation.Horizontal
+            };
+
             // Genero tutte le checkbox ma non cliccabili
             foreach (string element in checkboxTrue)
             {
-                if (true)
+                // Separo stringa
+                string[] parts = element.Split(';');
+                string oggetto = parts[0].Trim();
+                string sezione = parts[1].Trim();
+
+                if (ultimaSezione != sezione)
                 {
+                    // Cambio sezione, nuovo titolo
+                    ultimaSezione = sezione;
+
                     // Creo il titolo di questa sezione
                     Label labelTitolo = new Label
                     {
-                        Text = element,
+                        Text = ultimaSezione,
                         TextColor = Color.FromHex("#BB86FC"),
                         FontSize = 30,
                         HorizontalTextAlignment = TextAlignment.Center,
                         Margin = new Thickness(0, 30, 0, 0) // Applica un margine top di 30
                     };
-                }
-                else
-                {
 
+                    // StackLayout padre per ogni gruppo checkbox + label
+                    stackLayoutCheckbox.Children.Add(labelTitolo);
+
+                    // Aggiungi la checkbox e la label al layout
+                    stackLayoutBase = this.FindByName<StackLayout>("stackLayoutListaOggetti");
+                    stackLayoutBase.Children.Add(stackLayoutCheckbox);
                 }
 
                 // Genero una checkbox
@@ -101,7 +127,7 @@
                 // Genero la label
                 Label label = new Label
                 {
-                    Text = element,
+                    Text = oggetto,
                     VerticalTextAlignment = TextAlignment.Center,
                     HorizontalOptions = LayoutOptions.StartAndExpand,
                     GestureRecognizers =
@@ -114,12 +140,6 @@
                             })
                         }
                     }
-                };
-
-                // Creo lo stacklayout che lo contiene
-                StackLayout stackLayoutCheckbox = new StackLayout
-                {
-                    Orientation = StackOrientation.Horizontal
                 };
 
                 // StackLayout padre per ogni gruppo checkbox + label
