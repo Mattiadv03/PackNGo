@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pack__n__Go.Preview"
+             Title=""
+             BackgroundColor="#121212"
+             >
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="0" VerticalOptions="Center">
+            <Label Text="Pack and Go" FontSize="36" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+
+            <StackLayout HorizontalOptions="Center" x:Name="dynamicCategoria">
+                <!-- Nome categoria impostato dinamicamente-->
+            </StackLayout>
+
+            <Label Text="Ecco l'anteprima della valigia" FontSize="24" HorizontalTextAlignment="Center" />
+
+            <StackLayout x:Name="stackLayoutListaOggetti" HorizontalOptions="CenterAndExpand"></StackLayout>
+
+            <Button Text="Salva valigia" x:Name="saveButton" Clicked="SaveClicked" TextColor="#121212" FontSize="16" BackgroundColor="#03DAC5"/>
+            
+            <Button Text="Modifica valigia" x:Name="backButton" Clicked="BackClicked" TextColor="#121212" FontSize="16" BackgroundColor="#CF6679"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+</ContentPage>
