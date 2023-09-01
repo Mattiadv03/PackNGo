@@ -15,31 +15,31 @@
                 <!-- Mare -->
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
                     <ImageButton Source="mare.jpg" x:Name="mareImage" Clicked="MareImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
-                    <Label Text="Mare" FontSize="18" HorizontalTextAlignment="Center" />
+                    <Label Text="Mare" FontSize="18" HorizontalTextAlignment="Center" Margin="10, 0, 0, 0" />
                 </StackLayout>
 
                 <!-- Montagna -->
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
                     <ImageButton Source="montagna.jpg" x:Name="montagnaImage" Clicked="MontagnaImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
-                    <Label Text="Montagna" FontSize="18" HorizontalTextAlignment="Center" />
+                    <Label Text="Montagna" FontSize="18" HorizontalTextAlignment="Center" Margin="10, 0, 0, 0" />
                 </StackLayout>
 
                 <!-- Lago -->
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
                     <ImageButton Source="lago.jpg" x:Name="lagoImage" Clicked="LagoImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
-                    <Label Text="Lago" FontSize="18" HorizontalTextAlignment="Center" />
+                    <Label Text="Lago" FontSize="18" HorizontalTextAlignment="Center" Margin="10, 0, 0, 0" />
                 </StackLayout>
 
                 <!-- Visita città d'arte -->
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
                     <ImageButton Source="colosseo.jpg" x:Name="visitaImage" Clicked="VisitaImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
-                    <Label Text="Visita di una città d'arte" FontSize="18" HorizontalTextAlignment="Center" />
+                    <Label Text="Visita di una città d'arte" FontSize="18" HorizontalTextAlignment="Center" Margin="10, 0, 0, 0" />
                 </StackLayout>
                 
                 <!-- Escursione in montagna -->
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
-                    <ImageButton Source="colosseo.jpg" x:Name="escursioneImage" Clicked="EscursioneImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
-                    <Label Text="Escursione in montagna" FontSize="18" HorizontalTextAlignment="Center" />
+                    <ImageButton Source="escursione.png" x:Name="escursioneImage" Clicked="EscursioneImageClicked" MaximumWidthRequest="150" MaximumHeightRequest="150" Aspect="AspectFill" Margin="10" />
+                    <Label Text="Escursione in montagna" FontSize="18" HorizontalTextAlignment="Center" Margin="10, 0, 0, 0" />
                 </StackLayout>
                 
                 

@@ -52,7 +52,7 @@
         
         private void EscursioneImageClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Optionals(stagione, nomeVacanza, durata, "escursione"));
+            Navigation.PushAsync(new Valigia(stagione, nomeVacanza, durata, "escursione", "Escursione in montagna", "escursioneInMontagna.json", null));
         }
 
         private void BackClicked(object sender, EventArgs e)
