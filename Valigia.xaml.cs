@@ -93,11 +93,14 @@ namespace Pack__n__Go
                 StackLayout stackLayoutCategoria = this.FindByName<StackLayout>("dynamicCategoria");
                 stackLayoutCategoria.Children.Add(categoriaScelta);
 
-                // Carico il default
-                JsonToCheckBox("default.json");
+                if (nomeFileJSON == "mare-lago.json" || nomeFileJSON == "montagna.json" || nomeFileJSON == "visitaCitta.json")
+                {
+                    // Carico il default
+                    JsonToCheckBox("default.json");
 
-                // Carico l'optionals
-                JsonToCheckBox("optionals.json");
+                    // Carico l'optionals
+                    JsonToCheckBox("optionals.json");
+                }
 
                 // Carico il file della categoria
                 await JsonToCheckBox(nomeFileJSON);

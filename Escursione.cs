@@ -8,6 +8,26 @@ using System.Threading.Tasks;
 namespace Pack__n__Go
 {
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
+    public class Attrezzatura
+    {
+        public List<string> Scarpe { get; set; }
+        public Vestiti Vestiti { get; set; }
+
+        [JsonProperty("Freddo/Pioggia")]
+        public List<string> FreddoPioggia { get; set; }
+        public List<string> Utility { get; set; }
+
+        [JsonProperty("Creme solari")]
+        public List<string> Cremesolari { get; set; }
+        public List<string> Acque { get; set; }
+        public string Snack { get; set; }
+        public List<string> Powerbank { get; set; }
+
+        [JsonProperty("Coltello per i panini")]
+        public int Coltelloperipanini { get; set; }
+        public List<string> Necessary { get; set; }
+        public List<string> Facoltativi { get; set; }
+    }
 
     public class Vestiti
     {
@@ -29,22 +49,6 @@ namespace Pack__n__Go
 
     public class Escursione
     {
-        public List<string> Scarponi { get; set; }
-        public Vestiti Vestiti { get; set; }
-
-        [JsonProperty("Freddo/Pioggia")]
-        public List<string> FreddoPioggia { get; set; }
-        public List<string> Utility { get; set; }
-
-        [JsonProperty("Crema solare")]
-        public List<string> Cremasolare { get; set; }
-        public List<string> Acqua { get; set; }
-        public string Snack { get; set; }
-        public int Pila { get; set; }
-        public List<string> Powerbank { get; set; }
-
-        [JsonProperty("Coltello per i panini")]
-        public int Coltelloperipanini { get; set; }
-        public List<string> Necessary { get; set; }
+        public Attrezzatura Attrezzatura { get; set; }
     }
 }
