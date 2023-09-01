@@ -1,0 +1,19 @@
+{
+    "Vestire": {
+        "Maglietta che si può sporcare": 1,
+        "Pantaloni che si possono sporcare": 1,
+        "Scarpe che si possono sporcare": 1
+    },
+
+    "Crema solare": ["Crema solare normale", "Crema solare acne"],
+
+    "Acqua": "Borraccia 1.5 l",
+
+    "Snack": "Porta snack nel caso in cui hai fame",
+
+    "Utility": ["Cappello", "Occhiali da sole"],
+
+    "Freddo": ["Felpa"],
+
+    "Necessary": ["Chiavi di casa", "Portafoglio"]
+}
