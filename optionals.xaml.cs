@@ -185,6 +185,11 @@ namespace Pack__n__Go
                 categoriaMaiuscola = "Visita di città";
                 nomeFileJSON = "visitaCitta.json";
             }
+            else if (categoria == "escursione")
+            {
+                categoriaMaiuscola = "Escursione in montagna";
+                nomeFileJSON = "escursioneInMontagna.json";
+            }
             else
             {
                 categoriaMaiuscola = "errore";

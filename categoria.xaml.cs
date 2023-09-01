@@ -49,6 +49,11 @@
         {
             Navigation.PushAsync(new Optionals(stagione, nomeVacanza, durata, "visitaCitta"));
         }
+        
+        private void EscursioneImageClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Optionals(stagione, nomeVacanza, durata, "escursione"));
+        }
 
         private void BackClicked(object sender, EventArgs e)
         {
