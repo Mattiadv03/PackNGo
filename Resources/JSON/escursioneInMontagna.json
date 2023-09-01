@@ -1,6 +1,6 @@
 {
     "Attrezzatura": {
-        "Scarponi": ["Scarponi", "Saccheto scarponi"],
+        "Scarpe": ["Scarponi", "Saccheto scarponi"],
 
         "Vestiti": {
             "Magliette tecniche": 2,
@@ -14,19 +14,18 @@
 
         "Utility": ["Cappello", "Occhiali da sole"],
 
-        "Crema solare": ["Crema solare normale", "Crema solare acne"],
+        "Creme solari": ["Crema solare normale", "Crema solare acne"],
 
-        "Acqua": ["Borraccia 1.5 l", "Acqua aggiuntiva"],
+        "Acque": ["Borraccia 1.5 l", "Acqua aggiuntiva"],
 
         "Snack": "Porta del cibo che fornisce energia istantanea",
-
-        "Pila": 1,
 
         "Powerbank": ["Powerbank", "Cavo usb-c", "Caricatore orologio"],
 
         "Coltello per i panini": 1,
 
-        "Necessary": ["Chiavi di casa", "Portafoglio"]
+        "Necessary": ["Chiavi di casa", "Portafoglio"],
 
+        "Facoltativi": ["Pila"]
     }
 }
