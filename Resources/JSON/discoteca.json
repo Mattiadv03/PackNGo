@@ -1,0 +1,22 @@
+{
+    "Vestiti estate":{
+        "Vestire": [
+            "Maglia maniche corte (se possibile bianca)",
+            "Jeans (con tasche profonde)",
+            "Scarpe (meglio bianche)"
+        ]
+    },
+
+    "Vestiti inverno":{
+        "Vestire": [
+            "Maglia maniche corte (se possibile bianca)",
+            "Jeans (con tasche profonde)",
+            "Scarpe (meglio bianche)",
+            "Giubotto pesante (per quando esci)"
+        ]
+    },
+
+    "Utility": ["Fazzoletti", "Bottiglietta d'acqua (per quando esci)"],
+
+    "Necessary": ["Chiavi di casa", "NO Portafoglio ma telefono con carta associata"]
+}
