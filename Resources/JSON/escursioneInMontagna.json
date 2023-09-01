@@ -1,29 +1,32 @@
 {
-    "Scarponi": ["Scarponi", "Saccheto scarponi"],
+    "Attrezzatura": {
+        "Scarponi": ["Scarponi", "Saccheto scarponi"],
 
-    "Vestiti": {
-        "Magliette tecniche": 2,
-        "Pantaloni tecnici": 1,
-        "Cintura pantaloni tecnici": 1,
-        "Canutiere tecniche": 2,
-        "Calze tecniche altezza media": 1
-    },
+        "Vestiti": {
+            "Magliette tecniche": 2,
+            "Pantaloni tecnici": 1,
+            "Cintura pantaloni tecnici": 1,
+            "Canutiere tecniche": 2,
+            "Calze tecniche altezza media": 1
+        },
 
-    "Freddo/Pioggia": ["Maglietta maniche lunghe", "Felpa", "Kway"],
+        "Freddo/Pioggia": ["Maglietta maniche lunghe", "Felpa", "Kway"],
 
-    "Utility": ["Cappello", "Occhiali da sole"],
+        "Utility": ["Cappello", "Occhiali da sole"],
 
-    "Crema solare": ["Crema solare normale", "Crema solare acne"],
+        "Crema solare": ["Crema solare normale", "Crema solare acne"],
 
-    "Acqua": ["Borraccia 1.5 l", "Acqua aggiuntiva"],
+        "Acqua": ["Borraccia 1.5 l", "Acqua aggiuntiva"],
 
-    "Snack": "Porta del cibo che fornisce energia istantanea",
+        "Snack": "Porta del cibo che fornisce energia istantanea",
 
-    "Pila": 1,
+        "Pila": 1,
 
-    "Powerbank": ["Powerbank", "Cavo usb-c", "Caricatore orologio"],
+        "Powerbank": ["Powerbank", "Cavo usb-c", "Caricatore orologio"],
 
-    "Coltello per i panini": 1,
+        "Coltello per i panini": 1,
 
-    "Necessary": ["Chiavi di casa", "Portafoglio"]
+        "Necessary": ["Chiavi di casa", "Portafoglio"]
+
+    }
 }
