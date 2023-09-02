@@ -24,6 +24,7 @@ namespace Pack__n__Go
         // Stacklayout
         StackLayout stackLayoutBase;
 
+        // NEGLI OPTIONALS DI MONTAGNA MOSTRA SOLO COMPUTER E NON I VALUE DELL'ARRAY
 
         public Valigia(string stagione, string nomeVacanza, int durata, string categoria, string categoriaMaiuscola, string nomeFileJSON, List<string> checkboxTrue)
         {
@@ -192,7 +193,9 @@ namespace Pack__n__Go
                                 // Creo una checkbox
                                 CheckBox checkBox = GeneraCheckbox();
 
-                                myCheckboxList.Add(elementoPropertiesValue + ";" + nomeSezione, checkBox);
+                                string tempElement = elementoProperty.Name + "➞" + elementoPropertiesValue;
+
+                                myCheckboxList.Add(tempElement + ";" + nomeSezione, checkBox);
 
                                 // Crea una label
                                 Label label = new Label
@@ -413,7 +416,10 @@ namespace Pack__n__Go
                                         // E' una stringa o un intero
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
-                                    myCheckboxList.Add(elementoPropertiesValue + ";" + nomeSezione, checkBox);
+
+                                    string tempElement = elementoProperty.Name + "➞" + elementoPropertiesValue;
+
+                                    myCheckboxList.Add(tempElement + ";" + nomeSezione, checkBox);
 
                                     // Crea una label
                                     Label label = new Label
