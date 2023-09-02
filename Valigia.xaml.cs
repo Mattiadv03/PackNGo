@@ -366,6 +366,7 @@ namespace Pack__n__Go
                         // Controllo se presente in checkboxTrue
                         if (checkboxTrue.Contains(property.Name))
                         {
+                            // OPTIONALS HA PROBLEMI, CONTROLLA PER OGNI CATEGORIA CHE SIANO TUTTI VISIBILI
                             // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
                             string nomeSezione = property.Name;
                             if (property.GetCustomAttribute<JsonPropertyAttribute>() != null)
@@ -511,8 +512,14 @@ namespace Pack__n__Go
 
                                         label.Text = valore;
 
-                                        // Salvo nel dictionary l'elemento
-                                        dictionaryCheckboxTrue.Add(valore, nomeSezione);
+                                        try
+                                        {
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(valore, nomeSezione);
+                                        } catch (Exception ex)
+                                        {
+                                            label.Text = ex.Message;
+                                        }
                                     }
 
                                     // Creo lo stacklayout che lo contiene
@@ -557,8 +564,13 @@ namespace Pack__n__Go
                                             }
                                         };
 
-                                        // Salvo nel dictionary l'elemento
-                                        dictionaryCheckboxTrue.Add(elementoListValue, nomeSezione);
+                                        try
+                                        {
+                                            // Salvo nel dictionary l'elemento
+                                            dictionaryCheckboxTrue.Add(elementoListValue, nomeSezione);
+                                        } catch(Exception ex) { 
+                                            label.Text = ex.Message;
+                                        }
 
                                         // Creo lo stacklayout che lo contiene
                                         StackLayout stackLayoutCheckbox = new StackLayout

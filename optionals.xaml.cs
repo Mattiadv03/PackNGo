@@ -41,6 +41,7 @@ namespace Pack__n__Go
         private void OnPageSizeChanged(object sender, EventArgs e)
         {
             SetGeneraWidth();
+            SetCheckWidth();
             SetBackWidth();
         }
 
@@ -51,7 +52,15 @@ namespace Pack__n__Go
             double widthEntry = widthSchermo * 0.2;
             buttonGeneraValigia.WidthRequest = widthEntry;
         }
-        
+
+        private void SetCheckWidth()
+        {
+            var displayInfo = DeviceDisplay.MainDisplayInfo;
+            double widthSchermo = displayInfo.Width;
+            double widthButton = widthSchermo * 0.2;
+            checkAllButton.WidthRequest = widthButton;
+        }
+
         private void SetBackWidth()
         {
             var displayInfo = DeviceDisplay.MainDisplayInfo;
@@ -222,6 +231,32 @@ namespace Pack__n__Go
 
             // Mando alla pagina di generazione della valigia
             Navigation.PushAsync(new Valigia(stagione, nomeVacanza, durata, categoria, categoriaMaiuscola, nomeFileJSON, checkboxTrue));
+        }
+
+        private void checkAllClicked(object sender, EventArgs e)
+        {
+            if (checkAllButton.Text == "Seleziona tutto")
+            {
+                // Attivo tutte le checkbox
+                foreach (CheckBox cb in myCheckboxList.Values)
+                {
+                    cb.IsChecked = true;
+                }
+
+                // Lo trasformo in deseleziona tutto
+                checkAllButton.Text = "Deseleziona tutto";
+            }
+            else
+            {
+                // Disattivo tutte le checkbox
+                foreach (CheckBox cb in myCheckboxList.Values)
+                {
+                    cb.IsChecked = false;
+                }
+
+                // Lo trasformo in deseleziona tutto
+                checkAllButton.Text = "Seleziona tutto";
+            }
         }
 
         private void BackClicked(object sender, EventArgs e)
