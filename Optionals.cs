@@ -19,8 +19,8 @@ namespace Pack__n__Go
         [JsonProperty("Calze tecniche")]
         public string Calzetecniche { get; set; }
 
-        [JsonProperty("Scarpe da ginnastica")]
-        public int Scarpedaginnastica { get; set; }
+        [JsonProperty("Scarpe da ginnastica bicicletta")]
+        public int Scarpedaginnasticabicicletta { get; set; }
     }
 
     public class CamminareInMontagnaEstate
@@ -81,8 +81,8 @@ namespace Pack__n__Go
 
     public class Palestra
     {
-        [JsonProperty("Scarpe da ginnastica")]
-        public int Scarpedaginnastica { get; set; }
+        [JsonProperty("Scarpe da ginnastica palestra")]
+        public int Scarpedaginnasticapalestra { get; set; }
 
         [JsonProperty("Asciugamano in microfibra")]
         public int Asciugamanoinmicrofibra { get; set; }

@@ -28,11 +28,11 @@
         "Maglia tecnica": "numeroDiVolte * 1",
         "Pantaloni da bici": "numeroDiVolte * 1",
         "Calze tecniche": "numeroDiVolte * 1",
-        "Scarpe da ginnastica": 1
+        "Scarpe da ginnastica bicicletta": 1
     },
 
     "Palestra": {
-        "Scarpe da ginnastica": 1,
+        "Scarpe da ginnastica palestra": 1,
         "Asciugamano in microfibra": 1,
         "Maglia tecnica":"numeroDiVolte * 1",
         "Pantaloni da ginnastica": "numeroDiVolte / 2"
