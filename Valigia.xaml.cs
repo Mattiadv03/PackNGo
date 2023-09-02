@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Maui.Controls;
+using Newtonsoft.Json;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
@@ -175,7 +176,7 @@ namespace Pack__n__Go
                         foreach (PropertyInfo elementoProperty in elementoProperties)
                         {
                             // Popolo la sezione con le checkbox
-                            object elementoPropertyValue = elementoProperty.GetValue(value);
+                            object elementoPropertiesValue = elementoProperty.GetValue(value);
 
                             // Prendo il nome della json property solo se presente, perchè altrimenti è mal leggibile
                             string nomeProprieta = elementoProperty.Name;
@@ -185,13 +186,13 @@ namespace Pack__n__Go
                             }
 
                             // Controllo se è un array o un oggetto
-                            if (elementoPropertyValue is string || elementoPropertyValue is int)
+                            if (elementoPropertiesValue is string || elementoPropertiesValue is int)
                             {
                                     // E' una stringa o un intero
                                 // Creo una checkbox
                                 CheckBox checkBox = GeneraCheckbox();
 
-                                myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
+                                myCheckboxList.Add(elementoPropertiesValue + ";" + nomeSezione, checkBox);
 
                                 // Crea una label
                                 Label label = new Label
@@ -210,7 +211,7 @@ namespace Pack__n__Go
                                     }
                                 };
 
-                                if (elementoPropertyValue is string elementoString)
+                                if (elementoPropertiesValue is string elementoString)
                                 {
                                     // Controllo se è un valore o un'espressione
                                     string stringaLetta = elementoString;
@@ -277,7 +278,7 @@ namespace Pack__n__Go
                                         dictionaryCheckboxTrue.Add(valore, nomeSezione);
                                     }
                                 }
-                                else if (elementoPropertyValue is int elementoInt)
+                                else if (elementoPropertiesValue is int elementoInt)
                                 {
                                     string valore = nomeProprieta + " ➞ " + elementoInt.ToString();
 
@@ -301,7 +302,7 @@ namespace Pack__n__Go
                                 stackLayoutBase = this.FindByName<StackLayout>("stackLayoutListaOggetti");
                                 stackLayoutBase.Children.Add(stackLayoutCheckbox);
                             }
-                            else if (elementoPropertyValue is IList<string> elementoStringList)
+                            else if (elementoPropertiesValue is IList<string> elementoStringList)
                             {
                                     // E' un array
                                 foreach (string elementoListValue in elementoStringList)
@@ -412,7 +413,7 @@ namespace Pack__n__Go
                                         // E' una stringa o un intero
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
-                                    myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
+                                    myCheckboxList.Add(elementoPropertiesValue + ";" + nomeSezione, checkBox);
 
                                     // Crea una label
                                     Label label = new Label
@@ -530,7 +531,7 @@ namespace Pack__n__Go
                                         // Creo una checkbox
                                         CheckBox checkBox = GeneraCheckbox();
 
-                                        myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
+                                        myCheckboxList.Add(elementoListValue + ";" + nomeSezione, checkBox);
 
                                         // Crea una label
                                         Label label = new Label
@@ -652,7 +653,7 @@ namespace Pack__n__Go
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
 
-                                    myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
+                                    myCheckboxList.Add(elementoPropertiesValue + ";" + nomeSezione, checkBox);
 
                                     // Crea una label
                                     Label label = new Label
@@ -770,7 +771,7 @@ namespace Pack__n__Go
                                         // Creo una checkbox
                                         CheckBox checkBox = GeneraCheckbox();
 
-                                        myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
+                                        myCheckboxList.Add(elementoListValue + ";" + nomeSezione, checkBox);
 
                                         // Crea una label
                                         Label label = new Label
@@ -886,7 +887,7 @@ namespace Pack__n__Go
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
 
-                                    myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
+                                    myCheckboxList.Add(elementoPropertiesValue + ";" + nomeSezione, checkBox);
 
                                     // Crea una label
                                     Label label = new Label
@@ -1004,7 +1005,7 @@ namespace Pack__n__Go
                                         // Creo una checkbox
                                         CheckBox checkBox = GeneraCheckbox();
 
-                                        myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
+                                        myCheckboxList.Add(elementoListValue + ";" + nomeSezione, checkBox);
 
                                         // Crea una label
                                         Label label = new Label
@@ -1120,7 +1121,7 @@ namespace Pack__n__Go
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
 
-                                    myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
+                                    myCheckboxList.Add(elementoPropertiesValue + ";" + nomeSezione, checkBox);
 
                                     // Crea una label
                                     Label label = new Label
@@ -1238,7 +1239,7 @@ namespace Pack__n__Go
                                         // Creo una checkbox
                                         CheckBox checkBox = GeneraCheckbox();
 
-                                        myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
+                                        myCheckboxList.Add(elementoListValue + ";" + nomeSezione, checkBox);
 
                                         // Crea una label
                                         Label label = new Label
@@ -1340,7 +1341,7 @@ namespace Pack__n__Go
                                 // Creo una checkbox
                                 CheckBox checkBox = GeneraCheckbox();
 
-                                myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
+                                myCheckboxList.Add(elementoPropertiesValue + ";" + nomeSezione, checkBox);
 
                                 // Crea una label
                                 Label label = new Label
@@ -1457,8 +1458,7 @@ namespace Pack__n__Go
                                 {
                                     // Creo una checkbox
                                     CheckBox checkBox = GeneraCheckbox();
-
-                                    myCheckboxList.Add(nomeProprieta + ";" + nomeSezione, checkBox);
+                                    myCheckboxList.Add(elementoListValue + ";" + nomeSezione, checkBox);
 
                                     // Crea una label
                                     Label label = new Label
