@@ -34,8 +34,8 @@ namespace Pack__n__Go
         [JsonProperty("Igienizzante spray")]
         public int Igienizzantespray { get; set; }
 
-        [JsonProperty("Borsetta roba onta")]
-        public int Borsettarobaonta { get; set; }
+        [JsonProperty("Borsetta roba onta jolly")]
+        public int Borsettarobaontajolly { get; set; }
     }
 
     public class Elettronica
@@ -53,8 +53,8 @@ namespace Pack__n__Go
         public string Calze { get; set; }
         public List<string> Pigiama { get; set; }
 
-        [JsonProperty("Borsetta roba onta")]
-        public int Borsettarobaonta { get; set; }
+        [JsonProperty("Borsetta roba onta intimo")]
+        public int Borsettarobaontaintimo { get; set; }
     }
 
     public class Utility

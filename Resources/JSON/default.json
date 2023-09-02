@@ -11,7 +11,7 @@
         "Cerotti normali": 2,
         "Cerotti Vesciche": 2,
         "Igienizzante spray": 1,
-        "Borsetta roba onta": 1
+        "Borsetta roba onta jolly": 1
       },
 
       "Elettronica": {
@@ -36,6 +36,6 @@
         "Mutande": "numeroDiGiorni + 1",
         "Calze": "numeroDiGiorni",
         "Pigiama": [ "Maglietta", "Pantaloni" ],
-        "Borsetta roba onta": 1
+        "Borsetta roba onta intimo": 1
       }
 }

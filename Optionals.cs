@@ -108,8 +108,8 @@ namespace Pack__n__Go
         [JsonProperty("Telo mare")]
         public int Telomare { get; set; }
 
-        [JsonProperty("Borsetta roba onta")]
-        public int Borsettarobaonta { get; set; }
+        [JsonProperty("Borsetta roba onta piscina/mare")]
+        public int Borsettarobaontapiscinamare { get; set; }
 
         [JsonProperty("Crema solare faccia")]
         public int Cremasolarefaccia { get; set; }
