@@ -1,0 +1,295 @@
+<mxfile host="app.diagrams.net" modified="2024-04-01T09:00:05.048Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="0-7br0jO78QQ01YIMYpc" version="24.2.1" type="device">
+  <diagram name="Pagina-1" id="K_MnvdirMjny6_ICvPwz">
+    <mxGraphModel dx="4200" dy="2088" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-7" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="51" y="78" width="300" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-8" value="Pack &#39;N&#39; Go" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;" vertex="1" parent="1">
+          <mxGeometry x="76" y="155" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-9" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="81" y="249" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-10" value="Crea Vacanza" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="136" y="259" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-11" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="81" y="330" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-12" value="Le mie vacanze" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="113" y="340" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-13" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.enterprise.settings" vertex="1" parent="1">
+          <mxGeometry x="311" y="88" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-14" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.writing_pencil;" vertex="1" parent="1">
+          <mxGeometry x="101" y="260.75" width="26.5" height="26.5" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-15" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.book_journal;" vertex="1" parent="1">
+          <mxGeometry x="101" y="339.5" width="25.52" height="30.5" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-16" value="Landing Page" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=64;" vertex="1" parent="1">
+          <mxGeometry y="24" width="410" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-17" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="55" y="741" width="300" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-18" value="Crea Vacanza" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=64;" vertex="1" parent="1">
+          <mxGeometry y="680" width="410" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-19" value="Crea vacanza" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;" vertex="1" parent="1">
+          <mxGeometry x="71" y="791" width="268" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-20" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.enterprise.settings" vertex="1" parent="1">
+          <mxGeometry x="318" y="752" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-25" value="Inserisci il numero di notti:" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="912" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-26" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.forms.horSlider;strokeColor=#999999;sliderStyle=basic;sliderPos=20;handleStyle=circle;fillColor2=#ddeeff;" vertex="1" parent="1">
+          <mxGeometry x="130" y="942" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-27" value="Inserisci il nome della vacanza" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="87.5" y="852" width="235" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-28" value="" style="line;strokeWidth=2;html=1;" vertex="1" parent="1">
+          <mxGeometry x="125" y="892" width="160" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-29" value="La vacanza durerà n giorni" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#660066;" vertex="1" parent="1">
+          <mxGeometry x="130" y="964" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-30" value="Scegli la stagione:" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="130.5" y="1027" width="145" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-31" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-solid-vol-2/24/bxs-file-png-128.png" vertex="1" parent="1">
+          <mxGeometry x="226.5" y="1057" width="94.5" height="94.5" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-32" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-solid-vol-2/24/bxs-file-png-128.png" vertex="1" parent="1">
+          <mxGeometry x="91.87" y="1060" width="91.5" height="91.5" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-33" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="646" y="310" width="300" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-34" value="Scegli tipologia" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=64;" vertex="1" parent="1">
+          <mxGeometry x="570" y="249" width="452" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-35" value="Scegli tipologia" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;" vertex="1" parent="1">
+          <mxGeometry x="650.5" y="360" width="291" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-36" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.enterprise.settings" vertex="1" parent="1">
+          <mxGeometry x="909" y="321" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-43" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-solid-vol-2/24/bxs-file-png-128.png" vertex="1" parent="1">
+          <mxGeometry x="797" y="470" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-44" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-solid-vol-2/24/bxs-file-png-128.png" vertex="1" parent="1">
+          <mxGeometry x="660" y="470" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-45" value="Estate" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="101" y="1160" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-46" value="Inverno" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="243.75" y="1160" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-48" value="Gita in giornata" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=14;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;textShadow=0;" vertex="1" parent="1">
+          <mxGeometry x="149" y="1004" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-55" value="Scegli tipologia" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=64;" vertex="1" parent="1">
+          <mxGeometry x="570" y="950" width="452" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-65" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-solid-vol-2/24/bxs-file-png-128.png" vertex="1" parent="1">
+          <mxGeometry x="797" y="632.5" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-66" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-solid-vol-2/24/bxs-file-png-128.png" vertex="1" parent="1">
+          <mxGeometry x="660" y="629.5" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-67" value="Mare" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="694" y="590" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-68" value="Montagna" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="831" y="590" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-69" value="Lago" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="694" y="752" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-70" value="Visita di una città" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="806.5" y="752" width="109" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-71" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=-0.009;entryY=0.648;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="SgqOMNe-jJJGuSwlMxKt-33">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="902" as="sourcePoint" />
+            <mxPoint x="450" y="852" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-72" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="964" as="sourcePoint" />
+            <mxPoint x="640" y="1270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-73" value="Gita da più giorni" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="752" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-74" value="Gita in giornata" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1080" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-75" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="646" y="1011" width="300" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-77" value="Scegli tipologia" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;" vertex="1" parent="1">
+          <mxGeometry x="650.5" y="1061" width="291" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-78" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.enterprise.settings" vertex="1" parent="1">
+          <mxGeometry x="909" y="1022" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-80" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-solid-vol-2/24/bxs-file-png-128.png" vertex="1" parent="1">
+          <mxGeometry x="797" y="1171" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-81" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-solid-vol-2/24/bxs-file-png-128.png" vertex="1" parent="1">
+          <mxGeometry x="660" y="1171" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-82" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-solid-vol-2/24/bxs-file-png-128.png" vertex="1" parent="1">
+          <mxGeometry x="797" y="1333.5" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-83" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-solid-vol-2/24/bxs-file-png-128.png" vertex="1" parent="1">
+          <mxGeometry x="660" y="1330.5" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-84" value="Camminata in montagna" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="686" y="1291" width="76" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-85" value="In pista con Andre" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="827" y="1291" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-86" value="Discoteca" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="694" y="1453" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-87" value="xxxxxxx" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="806.5" y="1453" width="109" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-88" value="Scegli optional" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=64;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="608" width="452" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-89" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="1206" y="669" width="300" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-90" value="Scegli optional" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;" vertex="1" parent="1">
+          <mxGeometry x="1210.5" y="719" width="291" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-91" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.enterprise.settings" vertex="1" parent="1">
+          <mxGeometry x="1469" y="680" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-101" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="950" y="640" as="sourcePoint" />
+            <mxPoint x="1200" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-102" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="956" y="1291" as="sourcePoint" />
+            <mxPoint x="1190" y="1020" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-103" value="Lavoro" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="791" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-107" value="Piscina/Mare" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="821" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-115" value="Bicicletta" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="850" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-116" value="Palestra" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="880" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-117" value="Neve" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="906.5" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-118" value="Svago" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="936.5" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-119" value="Campeggio" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="965.5" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-120" value="Pioggia" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="995.5" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-121" value="..." style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="1022" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-124" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1296" y="1060" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-125" value="Genera Valigia" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="1061" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-126" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1296" y="1100" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-127" value="Tipo di vacanza errato" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1291" y="1100" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-128" value="Valigia" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=64;" vertex="1" parent="1">
+          <mxGeometry x="1720" y="612" width="452" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-129" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="1796" y="673" width="300" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-130" value="Valigia *tipologia*" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=33;" vertex="1" parent="1">
+          <mxGeometry x="1790" y="715" width="341.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-131" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.enterprise.settings" vertex="1" parent="1">
+          <mxGeometry x="2059" y="684" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-132" value="Alimentatore cellulare" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1900" y="795" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-133" value="Cavo usb-c" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1900" y="825" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-134" value="Alimentatore orologio" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1900" y="854" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-135" value="Cavo orologio" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1900" y="884" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-136" value="Cavo usb-c 3m" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1900" y="910.5" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-137" value="Powerbank" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1900" y="940.5" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-138" value="Cavo usb-c" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1900" y="969.5" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-139" value="Multipla" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="1900" y="999.5" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-141" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1886" y="1064" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-142" value="Salva valigia" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1900" y="1065" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-143" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1886" y="1104" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-144" value="Optionals errati" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1881" y="1104" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-145" value="Eletrronica" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="1916" y="757.5" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SgqOMNe-jJJGuSwlMxKt-146" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0.011;entryY=0.461;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="SgqOMNe-jJJGuSwlMxKt-129">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1510" y="910" as="sourcePoint" />
+            <mxPoint x="1780" y="872" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
